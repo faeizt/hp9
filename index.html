@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="login-bg">
+<head>
+ 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>THE HELPDESK - Account Authentication</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+ 
+<!-- StyleSheet -->
+
+<link href="font-awesome3/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="css/bootstrap.css" />
+<link rel="stylesheet" href="css/signin.css" />
+
+
+<!-- JavaScript -->
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/cookies.js"></script>
+
+</head>
+ 
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#"><FONT color="fefefe">CROSSROAD</FONT> <FONT color="3ca6fb">SUPPORT &nbsp;</FONT></a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+	    <li><a data-toggle="modal" data-target="#forgot"><i class="icon-user "></i> </i>Forgot Password</a></li>
+	    <li class="divider-vertical"></li>
+	    <li><a href="#contact" data-toggle="modal"><i class="icon-envelope icon-white"></i> Contact Us</a></li>
+	    <li class="divider-vertical" style="margin: 0 1px;"></li>
+    </ul>    
+  </div><!-- /.navbar-collapse -->
+
+</nav>
+<div class="login-wrapper">
+        <div class="box" ">
+            <div class="content-wrap">
+              <legend ><img src="images/logo.png" width="90px" border="0" alt=""></legend>
+                <h6>Welcome back, </h6>
+                <h5>Please sign in to your account. </h5>
+              <div id="sign-in-alert-container" class="alert alert-info">
+                  <i id="signin-alert-icon" class="hidden icon-lightbulb "></i> <span id="signin-alert">Enter username & password!</span>
+              </div>
+                <input id="username" class=" username" type="text" placeholder="Username">
+                <input id="password" class=" password" type="password" placeholder="Password">
+                <div class="remember hidden">
+                    <input id="remember-me" type="checkbox" checked>
+                    <label for="remember-me">Remember me</label>
+                </div>
+            <button  id="btn-login" class="btn btn-primary btn-block">Sign in</button>
+            </div>
+        </div>
+
+        <div class="no-account">
+            <!-- <p>&copy; Copyright Hud&Brothers 2022 - HELPDESK System</p> -->
+        </div>
+    </div>
+
+
+<!-- Forgot Password Model Box -->
+<div class="modal fade" id="forgot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Forgot Password</h4>
+      </div>
+      <div class="modal-body">
+		<p>Enter your username to reset the password</p>
+		<form>
+		      <div class="controls controls-row">
+		          <input id="name" name="name" type="text" class="span3" placeholder="Name" />
+		      </div>
+		 
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Contact Us Model Box -->
+<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Contact Us</h4>
+      </div>
+      <div class="modal-body">
+		<form>
+		      <div class="controls controls-row">
+		          <input id="name" name="name" type="text" class="span3" placeholder="Name" />
+		      </div>
+		 
+		       <div class="controls controls-row">
+		       <input id="email" name="email" type="email" class="span3" placeholder="Email address" />
+		       </div>
+		 
+		      <div class="controls">
+		          <textarea id="message" name="message" class="span5" placeholder="Your Message" rows="5"></textarea>
+		      </div>
+		 
+		  </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script type="text/javascript">
+
+var user = getCookie("username");
+if (user!=""){
+  document.getElementById("username").value = user;
+}
+
+$('.login-wrapper #username').focus()
+$('.login-wrapper').keyup(function(e) {
+    if (e.keyCode == $.ui.keyCode.ENTER)     $(this).parent().find("#btn-login").trigger("click");   
+});
+
+              $("#btn-login").click(function(){
+	          	$('#signin-alert-icon').removeClass();
+	          	$('#sign-in-alert-container').addClass("alert-info");
+	          	$('#signin-alert-icon').addClass("icon-info");
+              	$('#signin-alert').text("Authenticating access...");
+                $.ajax({
+                  async: "false",
+                  type: "POST",
+                  url: "auth.php",
+                  data: ({
+                          username: $("#username").val(),
+                          password: $("#password").val()  
+                        }) ,
+
+                  success: function(auth){
+                  //	 alert(auth)
+                    if(auth=="false"){ 
+
+                      $('#signin-alert').text("Opss!!, invalid login information");
+                      $('#signin-alert-icon').removeClass();
+                      $('#signin-alert-icon').addClass("icon-exclamation-sign");
+                      $('#sign-in-alert-container').removeClass("alert-info");
+                      $('#sign-in-alert-container').addClass("alert-danger");
+                      $('#sign-in-alert-container').effect("pulsate", { times:2 }, 500);
+                    }
+                    else if(auth=="true"){
+                      $('#signin-alert').text("Authorized user, you'll be redirect in a few seconds.");
+                      $('#signin-alert-icon').removeClass();
+                      $('#signin-alert-icon').addClass("icon-ok");
+                      $('#sign-in-alert-container').removeClass("alert-info");
+                      $('#sign-in-alert-container').removeClass("alert-danger");
+                      $('#sign-in-alert-container').addClass("alert-success");
+                      if ($("#remember-me").checked == "true"){
+                      setCookie("username",$("#username").value,30);
+                      }                      
+                      window.location.replace("index.php");
+                    }
+                  }
+                });
+              });
+
+            </script>
+</body>
+</html>
