@@ -1,4 +1,4 @@
-<?
+<?php
 $nav_level = $_SESSION['nav_level'];
 $nav_title = $_SESSION['nav_title'];
 $nav_control = "";
@@ -193,7 +193,7 @@ switch ($_SESSION['usertype']) {
         </div><!-- /.navbar-collapse -->
       </nav>
 
-<?
+<?php
 
 $access_query     =   "SELECT access FROM sys_users WHERE user_id = ".$_SESSION['user_id']  ;      // echo $sqlquery;
 $result           =   mysqli_query($con,$access_query) or die("sql= ". $access_query);          //query

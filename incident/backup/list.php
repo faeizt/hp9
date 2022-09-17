@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "1";
 $_SESSION['nav_title'] = "incident";
@@ -102,6 +102,6 @@ $_SESSION['nav_title'] = "incident";
       });
     </script>
 
-<?
+<?php
 include ("../nav/footer.php");
 ?>

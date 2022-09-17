@@ -1,4 +1,4 @@
-<?
+<?php
    $project    = htmlspecialchars(trim($_GET['project']));
    include '../DB.php';
 $h = array();

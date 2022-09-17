@@ -1,4 +1,4 @@
-<?
+<?php
 include ("nav/header.php");
 ?>
       <!-- Submenu Navigation -->
@@ -98,6 +98,6 @@ include ("nav/header.php");
 
     </script>
 
-<?
+<?php
 include ("nav/footer.php");
 ?>

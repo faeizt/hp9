@@ -1,4 +1,4 @@
-<?
+<?php
 include '../DB.php';
 if(isset($_POST['username'])){
   $id      = htmlspecialchars(trim($_POST['id']));

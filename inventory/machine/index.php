@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "2";
 $_SESSION['nav_title'] = "inventory";
@@ -176,7 +176,7 @@ $('#apply_filter').click(function(){
 
     </script>
 
-<?
+<?php
 }else{
 include ("../../nav/access_denied.php");
 }

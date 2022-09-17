@@ -1,5 +1,5 @@
 
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "2";
 $_SESSION['nav_title'] = "config";
@@ -175,7 +175,7 @@ if ($access_control2 == "true") {
                         window.location.replace("index.php");
             })                      
     </script>
-<?
+<?php
 }else{
 include ("../../nav/access_denied.php");
 }

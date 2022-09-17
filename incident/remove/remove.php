@@ -1,4 +1,4 @@
-<?
+<?php
 	include '../../DB.php';
 	$case_id  			= mysqli_real_escape_string($con,htmlspecialchars(trim($_POST['case_id'])));
 	

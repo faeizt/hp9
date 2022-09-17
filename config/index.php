@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "1";
 $_SESSION['nav_title'] = "config";
@@ -98,7 +98,7 @@ if ($access_control == "true") {
 
     </script>
 
-<?
+<?php
 }else{
 include ("../nav/access_denied.php");
 }

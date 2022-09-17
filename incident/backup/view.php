@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "1";
 $_SESSION['nav_title'] = "incident";
@@ -63,7 +63,7 @@ $role =  $_SESSION['usertype'];
               
             </ol>
           </div>
-<?
+<?php
 $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5,SUBSTR(cases.case_id,-7,7),cases.case_id) caseid,project.project_code, info, caller, contact, ".
             "title, ".
             "cases.project_code,cases.sts,cases.client_code,cases.site_id,via,via.code_name as viaDesc, cases.sla , ".
@@ -407,7 +407,7 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
   });  
 </script>
         
-<?
+<?php
 }else{
 include ("../nav/access_denied.php");
 }

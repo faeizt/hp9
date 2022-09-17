@@ -19,7 +19,7 @@
   }  
     
 </style>
-<?
+<?php
 include '../DB.php'; //DB Connection String
 
 if(isset($_GET['case_id'])){

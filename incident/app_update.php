@@ -1,4 +1,4 @@
-<?
+<?php
 if(isset($_POST['pk'])){
 	include '../DB.php';
 	$app_no  			= mysqli_real_escape_string($con,htmlspecialchars(trim($_POST['pk'])));

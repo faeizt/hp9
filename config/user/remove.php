@@ -1,4 +1,4 @@
-<?
+<?php
 if(isset($_POST['user_id'])){
 	include '../../DB.php';
 	$user_id  				= 	mysqli_real_escape_string($con,htmlspecialchars(trim($_POST['user_id'])));

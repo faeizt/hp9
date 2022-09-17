@@ -1,4 +1,4 @@
-<?
+<?php
 include '../DB.php';
 $report				= mysqli_real_escape_string($con,htmlspecialchars(trim($_GET['report_type']))); //incident | project | engineer
 $graph				= mysqli_real_escape_string($con,htmlspecialchars(trim($_GET['graph_type'])));  //daily | weekly | monthly | yearly

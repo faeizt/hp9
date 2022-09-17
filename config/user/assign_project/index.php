@@ -1,5 +1,5 @@
 
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "3";
 $_SESSION['nav_title'] = "config";
@@ -358,7 +358,7 @@ if ($access_control2 == "true") {
     })
 
     </script>
-<?
+<?php
 }else{
 include ("../../../nav/access_denied.php");
 }

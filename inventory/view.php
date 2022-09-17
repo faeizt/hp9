@@ -1,5 +1,5 @@
 
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "1";
 $_SESSION['nav_title'] = "inventory";
@@ -178,7 +178,7 @@ if ($access_control == "true") {
                         window.location.replace("index.php");
             })           
     </script>
-<?
+<?php
 }else{
 include ("../nav/access_denied.php");
 }

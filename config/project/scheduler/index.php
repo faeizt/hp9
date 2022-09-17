@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "3";
 $_SESSION['nav_title'] = "config";
@@ -331,7 +331,7 @@ if(isset($_GET['project_code'])){
 
   </script>
 
-<?
+<?php
 }else{
 include ("../../../nav/access_denied.php");
 }

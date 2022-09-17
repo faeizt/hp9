@@ -1,4 +1,4 @@
-<?
+<?php
 $nav_level = $_SESSION['nav_level'];
 $nav_title = $_SESSION['nav_title'];
 $user_access  = 0;
@@ -205,7 +205,7 @@ $user_access3     =   intval($row['access3']);
         </div><!-- /.navbar-collapse -->
       </nav>
 
-<?
+<?php
 
 $current_path     =   $_SERVER['SCRIPT_FILENAME'];
 //echo $current_path.'|'.$user_access;

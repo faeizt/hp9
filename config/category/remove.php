@@ -1,4 +1,4 @@
-<?
+<?php
 if(isset($_POST['category_id'])){
 	include '../../DB.php';
 	$category_id  				= 	mysqli_real_escape_string($con,htmlspecialchars(trim($_POST['category_id'])));

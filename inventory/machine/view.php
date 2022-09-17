@@ -1,5 +1,5 @@
 
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "2";
 $_SESSION['nav_title'] = "inventory";
@@ -171,7 +171,7 @@ if ($access_control == "true") {
                         window.history.back();
             })           
     </script>
-<?
+<?php
 }else{
 include ("../../nav/access_denied.php");
 }

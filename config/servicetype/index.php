@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "2";
 $_SESSION['nav_title'] = "config";
@@ -28,7 +28,7 @@ if ($access_control2 == "true") {
                   </div>
                 </div><!-- /.row -->
                 <div class="table-responsive" id="div_app_list">
-<?
+<?php
             include '../../DB.php';
 
 $sqlquery = "SELECT * FROM code_definition where code_cat='servicetyp' order by code desc";
@@ -53,7 +53,7 @@ $i=0;?>
       </thead>
       <tbody>
 
-<?
+<?php
 while ($row = mysqli_fetch_assoc($result)) {
   $id         =  $row["code_definition_id"];
   $code_cat   =  $row["code_cat"];
@@ -116,7 +116,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         })              })
     </script>
 
-<?
+<?php
 }else{
 include ("../../nav/access_denied.php");
 }

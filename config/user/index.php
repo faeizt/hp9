@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "2";
 $_SESSION['nav_title'] = "config";
@@ -73,7 +73,7 @@ $i=0;
          </tr>
       </thead>
       <tbody>
-<?
+<?php
 while ($row = mysqli_fetch_assoc($result)) {
    $no         =  $row["user_id"];
   $id         =  $row["username"];
@@ -140,7 +140,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             });
     </script>
 
-<?
+<?php
 }else{
 include ("../../nav/access_denied.php");
 }

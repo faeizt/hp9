@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "1";
 $_SESSION['nav_title'] = "calendar";
@@ -386,7 +386,7 @@ $project = "";
 
   </script>
 
-<?
+<?php
 }else{
 include ("../nav/access_denied.php");
 }

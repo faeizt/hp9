@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "1";
 $_SESSION['nav_title'] = "config";
@@ -101,7 +101,7 @@ if ($access_control == "true") {
       });
     </script>
 
-<?
+<?php
 }else{
 ?>
 <div id="page-wrapper" class="panel-body">
@@ -115,7 +115,7 @@ if ($access_control == "true") {
     </div>
   </div>  
 </div>   
-<?
+<?php
 }
 include ("../nav/footer.php");
 ?>

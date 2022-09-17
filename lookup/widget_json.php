@@ -1,4 +1,4 @@
-<?
+<?php
 include '../DB.php';
 $project    		= htmlspecialchars(trim($_GET['project_code']));
 $begin	    		= mysqli_real_escape_string($con,htmlspecialchars(trim($_GET['begin'])));

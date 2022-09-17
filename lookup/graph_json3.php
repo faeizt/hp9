@@ -1,4 +1,4 @@
-<?
+<?php
    include '../DB.php';
 $h = array();
 $v = array();

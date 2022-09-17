@@ -1,5 +1,5 @@
 
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "2";
 $_SESSION['nav_title'] = "inventory";
@@ -7,7 +7,7 @@ include ("../../nav/header.php");
 if ($access_control == "true") {
 ?>
     <script src='../../js/jquery.autosize.js'></script>
-<?
+<?php
 if(isset($_GET['case_id'])){
     include 'DB.php';
     $case_id     =   htmlspecialchars(trim($_GET['case_id']));
@@ -148,7 +148,7 @@ if(isset($_GET['case_id'])){
     window.location.replace("index.php");
     })   
 </script>
-<?
+<?php
 }else{
 include ("../../nav/access_denied.php");
 }

@@ -1,12 +1,10 @@
 <?php
 
-//--------------------------------------------------------------------------
-// Example php script for fetching data from mysql database
-//--------------------------------------------------------------------------
+
 $host = "localhost";
-$user = "root";
-$pass = "";
-$port = "3308";
+$user = "helpdeskadmin";
+$pass = "E8s*aq56^tye945-";
+$port = "3306";
 $socket = null;
 $databaseName = "thehelpdesk";
 

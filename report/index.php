@@ -1,4 +1,4 @@
-<?
+<?php
 $date = date("Y-m-d");
 $first_day_this_month = date('Y-m-01'); // hard-coded '01' for first day
 $last_day_this_month  = date('Y-m-t');
@@ -8,7 +8,7 @@ $last_day  = date('F t, Y');
 ?>
 <input type="hidden" id="today" value="<?=$date?>">
 
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "1";
 $_SESSION['nav_title'] = "report";
@@ -728,7 +728,7 @@ $('#reportrange').daterangepicker(
         });
 </script>
 
-<?
+<?php
 }else{
 include ("../nav/access_denied.php");
 }

@@ -1,4 +1,4 @@
-<?
+<?php
 $nav_level = $_SESSION['nav_level'];
 $nav_title = $_SESSION['nav_title'];
 $nav_control = "";

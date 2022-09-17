@@ -1,10 +1,10 @@
-<?
+<?php
 $date = date("Y-m-d");
 ?>
 <input type="hidden" id="project_list" value="MARA01,LHDN02">
 <input type="hidden" id="today" value="<?=$date?>">
 
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "1";
 $_SESSION['nav_title'] = "report";
@@ -450,7 +450,7 @@ $.each(currnt_image_list.split(','), function(index, value) {
         });
 </script>
 
-<?
+<?php
 }else{
 include ("../nav/access_denied.php");
 }

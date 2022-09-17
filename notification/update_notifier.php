@@ -1,4 +1,4 @@
-<?
+<?php
 require ('notification.php');
  
 $notifications = new notification();

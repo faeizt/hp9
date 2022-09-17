@@ -1,4 +1,4 @@
-<?
+<?php
 if(isset($_POST['site_id']) && isset($_POST['addr_id'])){
 	include '../../DB.php';
 	$site_id  				= 	mysqli_real_escape_string($con,htmlspecialchars(trim($_POST['site_id'])));

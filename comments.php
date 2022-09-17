@@ -1,4 +1,4 @@
-<?
+<?php
 include 'DB.php'; //DB Connection String
 
   $sqlquery   =   "SELECT *,getDateDiff(UNIX_TIMESTAMP(now()) - UNIX_TIMESTAMP(date)) dur,u.profile_image profile_image  FROM comments c left join  sys_users u on c.user_id= u.user_id order by date desc LIMIT 0, 5;";

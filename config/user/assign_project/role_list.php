@@ -1,4 +1,4 @@
-<?
+<?php
 if(isset($_GET['user_id'])){
 $user_id = $_GET['user_id'];
 include '../../../DB.php';
@@ -12,7 +12,7 @@ while ($row=mysqli_fetch_array($result)) {
   $project_name       =  $row["project_name"];
   ?>
                     <li><a href="index.php?user_id=<?=$user_id?>&ac=<?=$no?>"><?=$project_name?> - <?=$access?></a></li>
-<?
+<?php
 } 
 }
 ?>

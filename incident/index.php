@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "1";
 $_SESSION['nav_title'] = "incident";
@@ -19,7 +19,7 @@ if ($access_control == "true") {
 ?>
 <input type="hidden" id="project_list" value="<?=$project?>">
 <input type="hidden" id="project_code_list" value="<?=$project_code?>">
-<?
+<?php
 if (isset($_GET['date_type']) && isset($_GET['begin']) && isset($_GET['end'])) {?>
 <input type="hidden" id="date_type" value="<?=$_GET['date_type']?>">
 <input type="hidden" id="begin_date" value="<?=$_GET['begin']?>">
@@ -220,7 +220,7 @@ $('#apply_filter').click(function(){
       });
     </script>
 
-<?
+<?php
 }else{
 include ("../nav/access_denied.php");
 }
