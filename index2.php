@@ -16,7 +16,7 @@ $_SESSION['nav_title'] = "dashboard";
 
 include ("nav/header.php");
 if ($access_control == "true") {
-   echo "access granted"
+   echo "access granted";
 }else{
 include ("nav/access_denied.php");
 }
