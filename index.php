@@ -13,6 +13,7 @@ $year = date("Y");
 session_start();
 $_SESSION['nav_level'] = "0";
 $_SESSION['nav_title'] = "dashboard";
+
 include ("nav/header.php");
 if ($access_control == "true") {
 // echo "string = " . $_SESSION['usertype'];
