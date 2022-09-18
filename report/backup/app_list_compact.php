@@ -147,7 +147,7 @@ $i=0;
                     while($row = mysqli_fetch_array($result)){
                         $i++;?>
                       <tr style="border-bottom:1px solid #ddd" data="<?=$row['case_id']?>">
-                        <td><?echo((($page-1) * 10 ) + $i);?></td>
+                        <td><?php echo((($page-1) * 10 ) + $i);?></td>
                         <td><?=$row['title']?></td>
                         <td><?=$row['open_date']?></td>
                         <td><?=$row['open_by']?></td>

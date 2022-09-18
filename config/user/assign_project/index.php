@@ -120,8 +120,8 @@ if ($access_control2 == "true") {
             <p>
                 </p><ul>
                     <li><?php if(isset($row['username']))echo  "User: ".$row['username'];?></li>
-                    <li><?echo  "Contract: ".$row_ac['project_name'];?></li>
-                    <li><?echo  "Access Code: ".$row_ac['access'];?></li>
+                    <li><?php echo  "Contract: ".$row_ac['project_name'];?></li>
+                    <li><?php echo  "Access Code: ".$row_ac['access'];?></li>
                 </ul>
             <p></p>
 

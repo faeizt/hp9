@@ -135,7 +135,7 @@ $i=0;
                     while($row = mysqli_fetch_array($result)){
                         $i++;?>
                           <tr style="border-bottom:1px solid #ddd" data="<?=$row['case_id']?>">
-                            <td style="width:50px"><a class="pull-left" href="#"><img data-src="holder.js/70x70/text:<?echo((($page-1) * 10 ) + $i);?>" style="border:5px solid #ddd" class="img-circle"></a></td>
+                            <td style="width:50px"><a class="pull-left" href="#"><img data-src="holder.js/70x70/text:<?php echo((($page-1) * 10 ) + $i);?>" style="border:5px solid #ddd" class="img-circle"></a></td>
                             <td style="padding:15px">          
                             <div style="margin-right: 100px;">
                               <strong><?=$row['problem']?></strong>

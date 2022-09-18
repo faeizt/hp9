@@ -89,7 +89,7 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
             <div class="form-group" style="margin-bottom:0px">
 
                 <div class="col-sm-12">
-                    <textarea id="edit_description" class="form-control" style="height:100px;border-bottom: 0px solid #cccccc;"><?echo ($row['problem'])?></textarea>
+                    <textarea id="edit_description" class="form-control" style="height:100px;border-bottom: 0px solid #cccccc;"><?php echo ($row['problem'])?></textarea>
                 </div>
             </div>          
             <div class="content"  style="float:right; margin-top:5px" >  <span class="time"><i class="icon-time"></i> <?=$row['dur']?></span> </div>
@@ -110,7 +110,7 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
                 <div class="col-sm-7">
                   <div class="input-group" style="margin-bottom:2px">
                     <span class="input-group-addon"><i class="icon-envelope"></i></span>
-                    <textarea name="info" id="edit_site_address" class="form-control" style="height:85px;margin-top:5px" placeholder="Client Site Address"><?echo ($row['address'])?></textarea>                  </div>                    
+                    <textarea name="info" id="edit_site_address" class="form-control" style="height:85px;margin-top:5px" placeholder="Client Site Address"><?php echo ($row['address'])?></textarea>                  </div>                    
                 </div>    
 
 
@@ -130,7 +130,7 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
                 <div class="col-sm-7">
                   <div class="input-group" style="margin-bottom:2px">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-plus"></span></span>
-                    <textarea name="info" id="edit_add_info" class="form-control" style="height:65px;margin-top:5px" placeholder="Customer Email"><?echo ($row['info'])?></textarea>                  </div>                    
+                    <textarea name="info" id="edit_add_info" class="form-control" style="height:65px;margin-top:5px" placeholder="Customer Email"><?php echo ($row['info'])?></textarea>                  </div>                    
 
                 </div>    
 
