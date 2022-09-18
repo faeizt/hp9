@@ -129,23 +129,23 @@ $user_access3     =   intval($row['access3']);
 
             </li><?php 
             if (($user_access & 1) == 1) {?>
-            <li<?php if ($nav_title == "dashboard"){?> class="active"<?} ?>><a href="<?=$nav_control?>index.php"><span><i class="fa fa-dashboard"></i></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DASHBOARD</span></a></li>
-            <?}else{}
+            <li<?php if ($nav_title == "dashboard"){?> class="active"<?php  } ?>><a href="<?=$nav_control?>index.php"><span><i class="fa fa-dashboard"></i></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DASHBOARD</span></a></li>
+            <?php  }else{}
             if (($user_access & 2) == 2) {?>
-            <li<?php if ($nav_title == "incident"){?> class="active"<?} ?>><a href="<?=$nav_control?>incident"><span><i class="fa fa-wrench"></i></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INCIDENT</span></a></li>
-            <?}else{}
+            <li<?php if ($nav_title == "incident"){?> class="active"<?php  } ?>><a href="<?=$nav_control?>incident"><span><i class="fa fa-wrench"></i></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INCIDENT</span></a></li>
+            <?php  }else{}
             if (($user_access & 4) == 4) {?>
-            <li<?php if ($nav_title == "report"){?> class="active"<?} ?>><a href="<?=$nav_control?>report"><span><i class="fa fa-signal"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPORT</span></a></li>
-            <?}else{}
+            <li<?php if ($nav_title == "report"){?> class="active"<?php  } ?>><a href="<?=$nav_control?>report"><span><i class="fa fa-signal"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPORT</span></a></li>
+            <?php  }else{}
             if (($user_access & 8) == 8) {?>
-            <li<?php if ($nav_title == "calendar"){?> class="active"<?} ?>><a href="<?=$nav_control?>calendar"><span><i class="fa fa-calendar"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALENDAR</span></a></li>
-            <?}else{}
+            <li<?php if ($nav_title == "calendar"){?> class="active"<?php  } ?>><a href="<?=$nav_control?>calendar"><span><i class="fa fa-calendar"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALENDAR</span></a></li>
+            <?php  }else{}
             if (($user_access & 16) == 16) {?>
-            <li<?php if ($nav_title == "inventory"){?> class="active"<?} ?>><a href="<?=$nav_control?>inventory"><span><i class="fa fa-dropbox"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT LIST</span></a></li>
-            <?}else{}
+            <li<?php if ($nav_title == "inventory"){?> class="active"<?php  } ?>><a href="<?=$nav_control?>inventory"><span><i class="fa fa-dropbox"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT LIST</span></a></li>
+            <?php  }else{}
             if (($user_access & 32) == 32) {?>
-            <li<?php if ($nav_title == "config"){?> class="active"<?} ?>><a href="<?=$nav_control?>config"><span><i class="fa fa-cogs"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SETTING</span></a></li>
-            <?}else{}?>
+            <li<?php if ($nav_title == "config"){?> class="active"<?php  } ?>><a href="<?=$nav_control?>config"><span><i class="fa fa-cogs"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SETTING</span></a></li>
+            <?php  }else{}?>
           </ul>
 
           <?php 
