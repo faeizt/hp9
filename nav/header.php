@@ -127,28 +127,28 @@ $user_access3     =   intval($row['access3']);
               </div>
               <div class="clearfix"></div>
 
-            </li><?
+            </li><?php 
             if (($user_access & 1) == 1) {?>
-            <li<? if ($nav_title == "dashboard"){?> class="active"<?} ?>><a href="<?=$nav_control?>index.php"><span><i class="fa fa-dashboard"></i></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DASHBOARD</span></a></li>
+            <li<?php if ($nav_title == "dashboard"){?> class="active"<?} ?>><a href="<?=$nav_control?>index.php"><span><i class="fa fa-dashboard"></i></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DASHBOARD</span></a></li>
             <?}else{}
             if (($user_access & 2) == 2) {?>
-            <li<? if ($nav_title == "incident"){?> class="active"<?} ?>><a href="<?=$nav_control?>incident"><span><i class="fa fa-wrench"></i></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INCIDENT</span></a></li>
+            <li<?php if ($nav_title == "incident"){?> class="active"<?} ?>><a href="<?=$nav_control?>incident"><span><i class="fa fa-wrench"></i></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INCIDENT</span></a></li>
             <?}else{}
             if (($user_access & 4) == 4) {?>
-            <li<? if ($nav_title == "report"){?> class="active"<?} ?>><a href="<?=$nav_control?>report"><span><i class="fa fa-signal"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPORT</span></a></li>
+            <li<?php if ($nav_title == "report"){?> class="active"<?} ?>><a href="<?=$nav_control?>report"><span><i class="fa fa-signal"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPORT</span></a></li>
             <?}else{}
             if (($user_access & 8) == 8) {?>
-            <li<? if ($nav_title == "calendar"){?> class="active"<?} ?>><a href="<?=$nav_control?>calendar"><span><i class="fa fa-calendar"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALENDAR</span></a></li>
+            <li<?php if ($nav_title == "calendar"){?> class="active"<?} ?>><a href="<?=$nav_control?>calendar"><span><i class="fa fa-calendar"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALENDAR</span></a></li>
             <?}else{}
             if (($user_access & 16) == 16) {?>
-            <li<? if ($nav_title == "inventory"){?> class="active"<?} ?>><a href="<?=$nav_control?>inventory"><span><i class="fa fa-dropbox"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT LIST</span></a></li>
+            <li<?php if ($nav_title == "inventory"){?> class="active"<?} ?>><a href="<?=$nav_control?>inventory"><span><i class="fa fa-dropbox"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT LIST</span></a></li>
             <?}else{}
             if (($user_access & 32) == 32) {?>
-            <li<? if ($nav_title == "config"){?> class="active"<?} ?>><a href="<?=$nav_control?>config"><span><i class="fa fa-cogs"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SETTING</span></a></li>
+            <li<?php if ($nav_title == "config"){?> class="active"<?} ?>><a href="<?=$nav_control?>config"><span><i class="fa fa-cogs"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SETTING</span></a></li>
             <?}else{}?>
           </ul>
 
-          <?
+          <?php 
           $user     = $_SESSION['username'];
           $sqlquery = "SELECT COUNT(id) unread FROM notification WHERE seen = 'N' and user = '$user'";
           $result   = mysqli_query($con,$sqlquery) or die("sql= ". $sqlquery);          //query
@@ -175,16 +175,16 @@ $user_access3     =   intval($row['access3']);
 
           <ul class="nav navbar-nav navbar-right navbar-user">
             <li class="dropdown user-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="badge"><? if ($new_not !="0") { echo " ".$new_not; } ?></span>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="badge"><?php if ($new_not !="0") { echo " ".$new_not; } ?></span>
            Notification <b class="caret"></b></a>
               <ul id="notification" class="dropdown-menu">
 
-              <?
+              <?php 
               while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
               $i++;
               ?>
                 <li id='<?=$row['id']?>' case="<?=$row['case_id']?>"><a  ><i class="icon-file-alt"></i> <?=$row['case_id']?> : <?=$row['msg']?><br/><i><?=$row['updates']?></i></a></li>
-              <?
+              <?php 
               }
               ?>          
                
