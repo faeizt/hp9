@@ -32,7 +32,7 @@ $role =  $_SESSION['usertype'];
       ?>
 
       <!-- Submenu Navigation -->
-      <?if ((($PAC & 1024) == 1024) || (($PAC & 256) == 256) || (($PAC & 512) == 512)){   ?>
+      <?php  if ((($PAC & 1024) == 1024) || (($PAC & 256) == 256) || (($PAC & 512) == 512)){   ?>
       <nav class="navbar navbar-default" role="navigation">
       <div class="navbar-header visible-xs">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".submenu-colls">
@@ -46,11 +46,11 @@ $role =  $_SESSION['usertype'];
           </div>   
         <div id="myScrollspy" class="collapse navbar-collapse  submenu-colls">
           <ul class="nav navbar-nav-thin navbar-nav-leftborder-light vert-menu-border">
-            <?if (($PAC & 512) == 512){   ?><li id="update_status"><a href="#"><span class="glyphicon glyphicon-share-alt"></span> Update Status</a></li><?}?>
-            <?if (($PAC & 256) == 256){   ?><li id="edit_case"><a href="update/?app_no=<?=$case_id?>"><span class="glyphicon glyphicon-pencil"></span> Edit Details</a></li><?}?>
-            <?if (($PAC & 1024) == 1024){ ?><li id="assign_engineer"><a href="#"><span class="glyphicon glyphicon-user"></span> Assign Engineer</a></li><?}?>
-            <?if (($PAC & 1024) == 1024){ ?><li id="email"><a href="#"><span class="glyphicon glyphicon-envelope"></span> Email </a></li><?}?>
-            <?if (($PAC & 1024) == 1024){ ?><li id="remove"><a href="#"><span class="glyphicon glyphicon-trash"></span> Remove </a></li><?}?>
+            <?php  if (($PAC & 512) == 512){   ?><li id="update_status"><a href="#"><span class="glyphicon glyphicon-share-alt"></span> Update Status</a></li><?php  }?>
+            <?php  if (($PAC & 256) == 256){   ?><li id="edit_case"><a href="update/?app_no=<?=$case_id?>"><span class="glyphicon glyphicon-pencil"></span> Edit Details</a></li><?php  }?>
+            <?php  if (($PAC & 1024) == 1024){ ?><li id="assign_engineer"><a href="#"><span class="glyphicon glyphicon-user"></span> Assign Engineer</a></li><?php  }?>
+            <?php  if (($PAC & 1024) == 1024){ ?><li id="email"><a href="#"><span class="glyphicon glyphicon-envelope"></span> Email </a></li><?php  }?>
+            <?php  if (($PAC & 1024) == 1024){ ?><li id="remove"><a href="#"><span class="glyphicon glyphicon-trash"></span> Remove </a></li><?php  }?>
           </ul>          
         </div><!--/.nav-collapse -->
       </nav><!--/.navbar-default -->
@@ -112,7 +112,7 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
               <strong class="indent"><?=$row['title']?></strong>
             </span>           
           <div class="content shadow" style="margin-bottom:20px">
-            <blockquote style="padding:20px"><?echo nl2br($row['problem'])?></blockquote>
+            <blockquote style="padding:20px"><?php  echo nl2br($row['problem'])?></blockquote>
             <div class="content"  style="float:right; margin-top:5px" >  <span class="time"><i class="icon-time"></i> <?=$row['dur']?></span> </div>
             <div class="" style="float:left;border:1px solid #f5f5f5;padding:5px; margin-top:5px" >              <span class="label label-info">Incident ID</span> <?=$row['case_id']?>           </div>
           </div> 
@@ -282,7 +282,7 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
                 echo "No";
               }else{echo $row['recurrence'];}?></td></tr> -->
               <tr><td><i class="icon-map-marker"></i> Site Name</td><td><?=$row['site_name']?></td></tr>
-              <tr><td><i class="icon-envelope"></i> Site Address</td><td><?echo nl2br($row['address'])?></td></tr>
+              <tr><td><i class="icon-envelope"></i> Site Address</td><td><?php  echo nl2br($row['address'])?></td></tr>
               <tr><td><span class="glyphicon glyphicon-user"></span> Customer Name</td><td><?=$row['caller']?></td></tr>
               <tr><td><span class="glyphicon glyphicon-earphone"></span> Customer Contact</td><td><?=$row['contact']?></td></tr>
               <tr><td><span class="glyphicon glyphicon-send"></span> Customer Email</td><td><?=nl2br($row['info'])?></td></tr>
