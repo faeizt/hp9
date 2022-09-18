@@ -23,14 +23,14 @@ if ($access_control2 == "true") {
                   <li ><a href="../../config"><i class="icon-cogs"></i> Configuration</a></li>
                   <li class=""><a href="../../config/project"><i class="icon-fire"></i> User</a></li>
                   <li class="active"><i class="icon-briefcase"></i> Assign Project</li>
-                  <li class="active"><i class="icon-user"></i> <?if(isset($row['username']))echo $row['username'];?></li>
+                  <li class="active"><i class="icon-user"></i> <?php if(isset($row['username']))echo $row['username'];?></li>
                 </ol>
               </div>
             
         <form class="form-horizontal" role="form" style="margin-top:10px">
-        <input type="hidden" id="role" value="<?if(isset($row['role_id']))echo $row['role_id'];?>">     
-        <input type="hidden" id="specialization" value="<?if(isset($row['specialization']))echo $row['specialization'];?>">     
-        <input type="hidden" id="user_id" value="<?if(isset($row['user_id']))echo $row['user_id'];?>">     
+        <input type="hidden" id="role" value="<?php if(isset($row['role_id']))echo $row['role_id'];?>">     
+        <input type="hidden" id="specialization" value="<?php if(isset($row['specialization']))echo $row['specialization'];?>">     
+        <input type="hidden" id="user_id" value="<?php if(isset($row['user_id']))echo $row['user_id'];?>">     
         <div class="col-md-9  with-sidebar">
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-bookmark "></i> Client</label>

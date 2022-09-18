@@ -26,12 +26,12 @@ if ($access_control2 == "true") {
       }
         ?>              
         <form class="form-horizontal" role="form" style="margin-top:10px">
-        <input type="hidden" id="client_id" value="<?if(isset($row['id']))echo $row['id'];?>">     
+        <input type="hidden" id="client_id" value="<?php if(isset($row['id']))echo $row['id'];?>">     
         <div class="col-md-9  with-sidebar">
             <div class="form-group">
                 <label class="col-sm-4 control-label">Client Code</label>
                 <div class="col-sm-7">
-                    <input id="client_code" name="full-name" type="text" placeholder="Client Code" value="<?if(isset($row['client_code']))echo $row['client_code'];?>" 
+                    <input id="client_code" name="full-name" type="text" placeholder="Client Code" value="<?php if(isset($row['client_code']))echo $row['client_code'];?>" 
                     class="form-control">
                     <p class="help-block">e.g:TM,MARA, KWSP</p>
                 </div>
@@ -39,7 +39,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label">Acronym</label>
                 <div class="col-sm-7">
-                    <input id="client_acronym" name="full-name" type="text" placeholder="Acronym" value="<?if(isset($row['acronym']))echo $row['acronym'];?>" 
+                    <input id="client_acronym" name="full-name" type="text" placeholder="Acronym" value="<?php if(isset($row['acronym']))echo $row['acronym'];?>" 
                     class="form-control">
                     <p class="help-block">e.g:TM,MARA, KWSP</p>
                 </div>
@@ -47,7 +47,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label">Client Name</label>
                 <div class="col-sm-7">
-                    <input id="client_name" name="full-name" type="text" placeholder="Client Name in full" value="<?if(isset($row['name']))echo $row['name'];?>" 
+                    <input id="client_name" name="full-name" type="text" placeholder="Client Name in full" value="<?php if(isset($row['name']))echo $row['name'];?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>

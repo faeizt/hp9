@@ -32,7 +32,7 @@ $role =  $_SESSION['usertype'];
       ?>
 
       <!-- Submenu Navigation -->
-      <?if ((($PAC & 1024) == 1024) || (($PAC & 256) == 256) || (($PAC & 512) == 512)){   ?>
+      <?php if ((($PAC & 1024) == 1024) || (($PAC & 256) == 256) || (($PAC & 512) == 512)){   ?>
       <nav class="navbar navbar-default" role="navigation">
       <div class="navbar-header visible-xs">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".submenu-colls">
@@ -46,9 +46,9 @@ $role =  $_SESSION['usertype'];
           </div>   
         <div id="myScrollspy" class="collapse navbar-collapse  submenu-colls">
           <ul class="nav navbar-nav-thin navbar-nav-leftborder-light vert-menu-border">
-            <?if (($PAC & 512) == 512){   ?><li id="update_status"><a href="#"><span class="glyphicon glyphicon-share-alt"></span> Update Incident Status</a></li><?}?>
-            <?if (($PAC & 256) == 256){   ?><li id="edit_case"><a href="update/?app_no=<?=$case_id?>"><span class="glyphicon glyphicon-pencil"></span> Edit Incident Details</a></li><?}?>
-            <?if (($PAC & 1024) == 1024){ ?><li id="assign_engineer"><a href="#"><span class="glyphicon glyphicon-user"></span> Assign Engineer</a></li><?}?>
+            <?php if (($PAC & 512) == 512){   ?><li id="update_status"><a href="#"><span class="glyphicon glyphicon-share-alt"></span> Update Incident Status</a></li><?}?>
+            <?php if (($PAC & 256) == 256){   ?><li id="edit_case"><a href="update/?app_no=<?=$case_id?>"><span class="glyphicon glyphicon-pencil"></span> Edit Incident Details</a></li><?}?>
+            <?php if (($PAC & 1024) == 1024){ ?><li id="assign_engineer"><a href="#"><span class="glyphicon glyphicon-user"></span> Assign Engineer</a></li><?}?>
           </ul>          
         </div><!--/.nav-collapse -->
       </nav><!--/.navbar-default -->
@@ -102,7 +102,7 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
         $row        =   mysqli_fetch_array( $result );
       }
       ?>
-      <input type="hidden" id="case_id" value="<?if(isset($case_id))echo $case_id;?>">      
+      <input type="hidden" id="case_id" value="<?php if(isset($case_id))echo $case_id;?>">      
       <div class="col-lg-8" id="incident">
           <div class="info" style="background: ghostwhite;" >
             <span class="name" style="color:#aaa"><i class="icon-wrench"></i>
@@ -243,7 +243,7 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
             <tr><td><i class="fa fa-ticket"></i> Serial Number</td><td><?=$row['sn']?></td></tr>
             <tr><td><i class="fa fa-desktop"></i> Machine Type</td><td><?=$row['machine']?></td></tr>
               
-              <tr><td><i class="icon-retweet"></i> Recurrence</td><td><?if ($row['recurrence']=="") {
+              <tr><td><i class="icon-retweet"></i> Recurrence</td><td><?php if ($row['recurrence']=="") {
                 echo "No";
               }else{echo $row['recurrence'];}?></td></tr>
               <tr><td><i class="icon-map-marker"></i> Site Name</td><td><?=$row['site_name']?></td></tr>

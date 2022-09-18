@@ -24,22 +24,22 @@ if ($access_control2 == "true") {
                   <li ><a href="../../config"><i class="icon-cogs"></i> Configuration</a></li>
                   <li class=""><a href="../../config/user"><i class="icon-fire"></i> User</a></li>
                   <li class=""><i class="icon-pencil"></i> Update</li>
-                  <li class="active"><i class="icon-user"></i> <?if(isset($row['username']))echo $row['username'];?></li>
+                  <li class="active"><i class="icon-user"></i> <?php if(isset($row['username']))echo $row['username'];?></li>
                 </ol>
               </div>
           
         <form class="form-horizontal" role="form" style="margin-top:10px">
-        <input type="hidden" id="role" value="<?if(isset($row['role_id']))echo $row['role_id'];?>">     
-        <input type="hidden" id="specialization" value="<?if(isset($row['specialization']))echo $row['specialization'];?>">     
-        <input type="hidden" id="user_id" value="<?if(isset($row['user_id']))echo $row['user_id'];?>">     
-        <input type="hidden" id="profile_access" value="<?if(isset($row['access']))echo $row['access'];?>">
-        <input type="hidden" id="profile_access2" value="<?if(isset($row['access2']))echo $row['access2'];?>">
+        <input type="hidden" id="role" value="<?php if(isset($row['role_id']))echo $row['role_id'];?>">     
+        <input type="hidden" id="specialization" value="<?php if(isset($row['specialization']))echo $row['specialization'];?>">     
+        <input type="hidden" id="user_id" value="<?php if(isset($row['user_id']))echo $row['user_id'];?>">     
+        <input type="hidden" id="profile_access" value="<?php if(isset($row['access']))echo $row['access'];?>">
+        <input type="hidden" id="profile_access2" value="<?php if(isset($row['access2']))echo $row['access2'];?>">
 
         <div class="col-md-9  with-sidebar">
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-credit-card"></i> Username </label>
                 <div class="col-sm-6">
-                    <input id="profile_username" name="full-name" type="text" placeholder="Username" value="<?if(isset($row['username']))echo $row['username'];?>"
+                    <input id="profile_username" name="full-name" type="text" placeholder="Username" value="<?php if(isset($row['username']))echo $row['username'];?>"
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -47,7 +47,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-credit-card"></i> Full Name </label>
                 <div class="col-sm-6">
-                    <input id="profile_name" name="full-name" type="text" placeholder="Full Name" value="<?if(isset($row['name']))echo $row['name'];?>"
+                    <input id="profile_name" name="full-name" type="text" placeholder="Full Name" value="<?php if(isset($row['name']))echo $row['name'];?>"
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -55,7 +55,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-briefcase"></i> Position </label>
                 <div class="col-sm-6">
-                    <input id="profile_position" name="full-name" type="text" placeholder="Designation" value="<?if(isset($row['designation']))echo $row['designation'];?>"
+                    <input id="profile_position" name="full-name" type="text" placeholder="Designation" value="<?php if(isset($row['designation']))echo $row['designation'];?>"
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -63,7 +63,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-phone"></i> Office Phone Number </label>
                 <div class="col-sm-6">
-                    <input id="profile_phone" name="full-name" type="text" placeholder="Office Phone Number" value="<?if(isset($row['phone']))echo $row['phone'];?>"
+                    <input id="profile_phone" name="full-name" type="text" placeholder="Office Phone Number" value="<?php if(isset($row['phone']))echo $row['phone'];?>"
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -71,7 +71,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label"> <i class="fa fa-tablet"></i> Mobile Phone Number</label>
                 <div class="col-sm-6">
-                    <input id="profile_mobile" name="full-name" type="text" placeholder="Mobile Phone Number" value="<?if(isset($row['mobile']))echo $row['mobile'];?>"
+                    <input id="profile_mobile" name="full-name" type="text" placeholder="Mobile Phone Number" value="<?php if(isset($row['mobile']))echo $row['mobile'];?>"
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -79,7 +79,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-envelope"></i> Email Address</label>
                 <div class="col-sm-6">
-                    <input id="profile_email" name="full-name" type="text" placeholder="Email Address" value="<?if(isset($row['email']))echo $row['email'];?>"
+                    <input id="profile_email" name="full-name" type="text" placeholder="Email Address" value="<?php if(isset($row['email']))echo $row['email'];?>"
                     class="form-control"> 
                     <p class="help-block"></p>
                 </div>
@@ -94,7 +94,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-bookmark "></i> Skill Sets</label>
                 <div class="col-sm-6">
-                    <input id="profile_skillset" name="full-name" type="text" placeholder="Skill Sets" value="<?if(isset($row['skillset']))echo $row['skillset'];?>"
+                    <input id="profile_skillset" name="full-name" type="text" placeholder="Skill Sets" value="<?php if(isset($row['skillset']))echo $row['skillset'];?>"
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -109,7 +109,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-key "></i> Password</label>
                 <div class="col-sm-6">
-                    <input id="profile_password" name="full-name" type="password" placeholder="Password" value="<?if(isset($row['password']))echo "dmmypaswd";?>"
+                    <input id="profile_password" name="full-name" type="password" placeholder="Password" value="<?php if(isset($row['password']))echo "dmmypaswd";?>"
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -117,7 +117,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-key "></i> Retype Password</label>
                 <div class="col-sm-6">
-                    <input id="profile_re_password" name="full-name" type="password" placeholder="Retype Password" value="<?if(isset($row['password']))echo "dmmypaswd";?>"
+                    <input id="profile_re_password" name="full-name" type="password" placeholder="Retype Password" value="<?php if(isset($row['password']))echo "dmmypaswd";?>"
                     class="form-control">
                     <p class="help-block"></p>
                 </div>

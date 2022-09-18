@@ -26,19 +26,19 @@ if ($access_control2 == "true") {
       }
         ?>              
         <form class="form-horizontal" role="form" style="margin-top:10px">
-        <input type="hidden" id="category_id" value="<?if(isset($row['code_definition_id']))echo $row['code_definition_id'];?>">     
+        <input type="hidden" id="category_id" value="<?php if(isset($row['code_definition_id']))echo $row['code_definition_id'];?>">     
         <div class="col-md-9  with-sidebar">
             <div class="form-group">
                 <label class="col-sm-4 control-label">Category Name</label>
                 <div class="col-sm-7">
-                    <input id="category" name="full-name" type="text" placeholder="" value="<?if(isset($row['code_name']))echo $row['code_name'];?>" 
+                    <input id="category" name="full-name" type="text" placeholder="" value="<?php if(isset($row['code_name']))echo $row['code_name'];?>" 
                     class="form-control">
                 </div>
             </div>            
             <div class="form-group">
                 <label class="col-sm-4 control-label">Description</label>
                 <div class="col-sm-7">
-                    <input id="category_description" name="full-name" type="text" placeholder="" value="<?if(isset($row['descr']))echo $row['descr'];?>" 
+                    <input id="category_description" name="full-name" type="text" placeholder="" value="<?php if(isset($row['descr']))echo $row['descr'];?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>

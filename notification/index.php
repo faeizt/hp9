@@ -69,7 +69,7 @@ if ($access_control == "true") {
                         $i++;
                         echo      "<tr data=". $row['case_id']."><td>".$i."</td>";
                     ?>
-                        <td><?=$row['case_id']?><?if ($row['seen'] == 'N') { echo " *New";}?></td>                        
+                        <td><?=$row['case_id']?><?php if ($row['seen'] == 'N') { echo " *New";}?></td>                        
                         <td><?=$row['status']?></td>
                         <td><?=$row['updates']?></td>
                         <td><?=$row['user']?></td>

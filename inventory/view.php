@@ -25,10 +25,10 @@ if ($access_control == "true") {
       }
         ?>              
         <form class="form-horizontal" role="form" style="margin-top:10px">
-        <input type="hidden" id="id" value="<?if(isset($row['id']))echo $row['id'];?>">     
-        <input type="hidden" id="client" value="<?if(isset($row['id']))echo $row['client_code'];?>">     
-        <input type="hidden" id="project" value="<?if(isset($row['id']))echo $row['project_code'];?>">     
-        <input type="hidden" id="machine" value="<?if(isset($row['id']))echo $row['product_id'];?>">     
+        <input type="hidden" id="id" value="<?php if(isset($row['id']))echo $row['id'];?>">     
+        <input type="hidden" id="client" value="<?php if(isset($row['id']))echo $row['client_code'];?>">     
+        <input type="hidden" id="project" value="<?php if(isset($row['id']))echo $row['project_code'];?>">     
+        <input type="hidden" id="machine" value="<?php if(isset($row['id']))echo $row['product_id'];?>">     
         <div class="col-md-9  with-sidebar">
             <div class="form-group">
                 <label class=" col-sm-4 control-label">Choose Client</label>

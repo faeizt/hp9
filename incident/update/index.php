@@ -63,18 +63,18 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
 
       }
       ?>
-      <input type="hidden" id="case_id" value="<?if(isset($case_id))echo $case_id;?>">      
-      <input type="hidden" id="status" value="<?if(isset($row['sts']))echo $row['sts'];?>">   
-      <input type="hidden" id="project" value="<?if(isset($row['project_code']))echo $row['project_code'];?>">   
-      <input type="hidden" id="service_type" value="<?if(isset($row['servType'])){echo $row['servType'];}?>">
-      <input type="hidden" id="category" value="<?if(isset($row['cat'])){echo $row['cat'];}?>">
-      <input type="hidden" id="machine" value="<?if(isset($row['product'])){echo $row['product'];}?>">
-      <input type="hidden" id="severity" value="<?if(isset($row['flag'])){echo $row['flag_id'];}?>">
-      <input type="hidden" id="sla" value="<?if(isset($row['sla']))echo $row['sla']?>">      
-      <input type="hidden" id="report_channel" value="<?if(isset($row['via'])){echo $row['via'];}?>">
-      <input type="hidden" id="edit_site_id" value="<?if(isset($row['site_id'])){echo $row['site_id'];}?>">
-      <input type="hidden" id="edit_addr_id" value="<?if(isset($row['addr_id'])){echo $row['addr_id'];}?>">
-      <input type="hidden" id="edit_sla" value="<?if(isset($row['sla'])){echo $row['sla'];}?>">
+      <input type="hidden" id="case_id" value="<?php if(isset($case_id))echo $case_id;?>">      
+      <input type="hidden" id="status" value="<?php if(isset($row['sts']))echo $row['sts'];?>">   
+      <input type="hidden" id="project" value="<?php if(isset($row['project_code']))echo $row['project_code'];?>">   
+      <input type="hidden" id="service_type" value="<?php if(isset($row['servType'])){echo $row['servType'];}?>">
+      <input type="hidden" id="category" value="<?php if(isset($row['cat'])){echo $row['cat'];}?>">
+      <input type="hidden" id="machine" value="<?php if(isset($row['product'])){echo $row['product'];}?>">
+      <input type="hidden" id="severity" value="<?php if(isset($row['flag'])){echo $row['flag_id'];}?>">
+      <input type="hidden" id="sla" value="<?php if(isset($row['sla']))echo $row['sla']?>">      
+      <input type="hidden" id="report_channel" value="<?php if(isset($row['via'])){echo $row['via'];}?>">
+      <input type="hidden" id="edit_site_id" value="<?php if(isset($row['site_id'])){echo $row['site_id'];}?>">
+      <input type="hidden" id="edit_addr_id" value="<?php if(isset($row['addr_id'])){echo $row['addr_id'];}?>">
+      <input type="hidden" id="edit_sla" value="<?php if(isset($row['sla'])){echo $row['sla'];}?>">
       
 
       <div class="col-lg-8 form-horizontal" id="incident">

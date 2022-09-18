@@ -15,7 +15,7 @@ include '../DB.php';
     $i++;
 
     ?>
-    <option value="<?=$id?>" <?if($id==$selected){echo"selected";}?>><?=$name?></option><?php 
+    <option value="<?=$id?>" <?php if($id==$selected){echo"selected";}?>><?=$name?></option><?php 
   } 
 
 ?>

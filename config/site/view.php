@@ -28,11 +28,11 @@ if ($access_control2 == "true") {
       }
         ?>              
         <form class="form-horizontal" role="form" style="margin-top:10px">
-        <input type="hidden" id="project" value="<?if(isset($row['project_code']))echo $row['project_code'];?>">     
-        <input type="hidden" id="client" value="<?if(isset($row['client_code']))echo $row['client_code'];?>">     
-        <input type="hidden" id="state" value="<?if(isset($row['state']))echo $row['state'];?>">     
-        <input type="hidden" id="site_id" value="<?if(isset($row['site_id']))echo $row['site_id'];?>">     
-        <input type="hidden" id="addr_id" value="<?if(isset($row['addr_id']))echo $row['addr_id'];?>">    
+        <input type="hidden" id="project" value="<?php if(isset($row['project_code']))echo $row['project_code'];?>">     
+        <input type="hidden" id="client" value="<?php if(isset($row['client_code']))echo $row['client_code'];?>">     
+        <input type="hidden" id="state" value="<?php if(isset($row['state']))echo $row['state'];?>">     
+        <input type="hidden" id="site_id" value="<?php if(isset($row['site_id']))echo $row['site_id'];?>">     
+        <input type="hidden" id="addr_id" value="<?php if(isset($row['addr_id']))echo $row['addr_id'];?>">    
         <div class="col-md-9  with-sidebar">
             <div class="form-group">
                 <label class=" col-sm-4 control-label">Choose Client</label>
@@ -51,7 +51,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label">Site Name</label>
                 <div class="col-sm-7">
-                    <input id="site_name" name="full-name" type="text" placeholder="Site Name" value="<?if(isset($row['site_name']))echo $row['site_name'];?>" 
+                    <input id="site_name" name="full-name" type="text" placeholder="Site Name" value="<?php if(isset($row['site_name']))echo $row['site_name'];?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -59,7 +59,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label">Address Line 1</label>
                 <div class="col-sm-7">
-                    <input id="site_addr_1" name="full-name" type="text" placeholder="Address Line 1" value="<?if(isset($row['addr1']))echo $row['addr1'];?>" 
+                    <input id="site_addr_1" name="full-name" type="text" placeholder="Address Line 1" value="<?php if(isset($row['addr1']))echo $row['addr1'];?>" 
                     class="form-control">
                     <p class="help-block">e.g: Block No, Building name</p>
                 </div>
@@ -67,7 +67,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label">Address Line 2</label>
                 <div class="col-sm-7">
-                    <input id="site_addr_2" name="full-name" type="text" placeholder="Address Line 2" value="<?if(isset($row['addr2']))echo $row['addr2'];?>" 
+                    <input id="site_addr_2" name="full-name" type="text" placeholder="Address Line 2" value="<?php if(isset($row['addr2']))echo $row['addr2'];?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -75,7 +75,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label">Postcode</label>
                 <div class="col-sm-7">
-                    <input id="site_postcode" name="full-name" type="text" placeholder="Postcode number" value="<?if(isset($row['postcode']))echo $row['postcode'];?>" 
+                    <input id="site_postcode" name="full-name" type="text" placeholder="Postcode number" value="<?php if(isset($row['postcode']))echo $row['postcode'];?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -83,7 +83,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label">City</label>
                 <div class="col-sm-7">
-                    <input id="site_city" name="full-name" type="text" placeholder="City" value="<?if(isset($row['city']))echo $row['city'];?>" 
+                    <input id="site_city" name="full-name" type="text" placeholder="City" value="<?php if(isset($row['city']))echo $row['city'];?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>

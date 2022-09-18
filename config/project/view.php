@@ -27,13 +27,13 @@ if ($access_control2 == "true") {
       }
         ?>              
         <form class="form-horizontal" role="form" style="margin-top:10px">
-        <input type="hidden" id="project_id" value="<?if(isset($row['id']))echo $row['id'];?>">     
-        <input type="hidden" id="client" value="<?if(isset($row['client_code']))echo $row['client_code'];?>">     
+        <input type="hidden" id="project_id" value="<?php if(isset($row['id']))echo $row['id'];?>">     
+        <input type="hidden" id="client" value="<?php if(isset($row['client_code']))echo $row['client_code'];?>">     
         <div class="col-md-9  with-sidebar">
             <div class="form-group">
                 <label class="col-sm-4 control-label">Contract Name</label>
                 <div class="col-sm-7">
-                    <input id="project_name" name="full-name" type="text" placeholder="Project Name" value="<?if(isset($row['project_name']))echo $row['project_name'];?>" 
+                    <input id="project_name" name="full-name" type="text" placeholder="Project Name" value="<?php if(isset($row['project_name']))echo $row['project_name'];?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -42,7 +42,7 @@ if ($access_control2 == "true") {
                 <label class="col-sm-4 control-label">Description</label>
                 <div class="col-sm-7">
                     <textarea id="project_description" 
-                    class="form-control" Placeholder="Project Description"><?if(isset($row['project_descr']))echo $row['project_descr'];?></textarea>
+                    class="form-control" Placeholder="Project Description"><?php if(isset($row['project_descr']))echo $row['project_descr'];?></textarea>
                     <p class="help-block"></p>
                 </div>
             </div>            
@@ -56,7 +56,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label">Sales Order #</label>
                 <div class="col-sm-7">
-                    <input id="project_contract" type="text" placeholder="Contract Code" value="<?if(isset($row['contract_code']))echo $row['contract_code'];?>" 
+                    <input id="project_contract" type="text" placeholder="Contract Code" value="<?php if(isset($row['contract_code']))echo $row['contract_code'];?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -64,7 +64,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label">Account Manager </label>
                 <div class="col-sm-7">
-                    <input id="project_am" type="text" placeholder="Account Manager Name" value="<?if(isset($row['accountmanager']))echo $row['accountmanager'];?>" 
+                    <input id="project_am" type="text" placeholder="Account Manager Name" value="<?php if(isset($row['accountmanager']))echo $row['accountmanager'];?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -72,7 +72,7 @@ if ($access_control2 == "true") {
             <div class="form-group" style="display:none">
                 <label class="col-sm-4 control-label">Project Manager</label>
                 <div class="col-sm-7">
-                    <input id="project_pm" type="text" placeholder="Project Manager Name" value="<?if(isset($row['projectmanager']))echo $row['projectmanager'];?>" 
+                    <input id="project_pm" type="text" placeholder="Project Manager Name" value="<?php if(isset($row['projectmanager']))echo $row['projectmanager'];?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -80,7 +80,7 @@ if ($access_control2 == "true") {
             <div class="form-group" style="display:none">
                 <label class="col-sm-4 control-label">Client Project Manager</label>
                 <div class="col-sm-7">
-                    <input id="project_cpm" type="text" placeholder="Client Project Manager Name" value="<?if(isset($row['clientpm']))echo $row['clientpm'];?>" 
+                    <input id="project_cpm" type="text" placeholder="Client Project Manager Name" value="<?php if(isset($row['clientpm']))echo $row['clientpm'];?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -88,7 +88,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label">Start Date</label>
                 <div class="col-sm-7">
-                    <input id="project_start" type="text" placeholder="Start Date" value="<?if(isset($row['start']))echo $row['start'];?>" 
+                    <input id="project_start" type="text" placeholder="Start Date" value="<?php if(isset($row['start']))echo $row['start'];?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -96,7 +96,7 @@ if ($access_control2 == "true") {
             <div class="form-group">
                 <label class="col-sm-4 control-label">End Date</label>
                 <div class="col-sm-7">
-                    <input id="project_end" type="text" placeholder="End Date" value="<?if(isset($row['end']))echo $row['end'];?>" 
+                    <input id="project_end" type="text" placeholder="End Date" value="<?php if(isset($row['end']))echo $row['end'];?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>

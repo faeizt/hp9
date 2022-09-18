@@ -56,8 +56,8 @@ if ($access_control2 == "true") {
                 ?>
 
         <form class="form-horizontal" role="form" style="margin-top:10px">
-        <input type="hidden" id="role" value="<?if(isset($row['role_id']))echo $row['role_id'];?>">     
-        <input type="hidden" id="user_id" value="<?if(isset($_GET['user_id']))echo $_GET['user_id'];?>">     
+        <input type="hidden" id="role" value="<?php if(isset($row['role_id']))echo $row['role_id'];?>">     
+        <input type="hidden" id="user_id" value="<?php if(isset($_GET['user_id']))echo $_GET['user_id'];?>">     
         <div class="col-md-9  with-sidebar">
 <div class="row">
           <div class="col-lg-6" id="access_form">
@@ -72,7 +72,7 @@ if ($access_control2 == "true") {
                     $access_id = intval($row['access_id']);
                     ?>
 
-                    <p class="help-block" style="padding-left: 20px"><input type="checkbox" id="<?=$access_id?>" <?if (($user_access & $access_id) == $access_id) { echo 'checked'; } ?>> <?=$row['description']?></p>
+                    <p class="help-block" style="padding-left: 20px"><input type="checkbox" id="<?=$access_id?>" <?php if (($user_access & $access_id) == $access_id) { echo 'checked'; } ?>> <?=$row['description']?></p>
 
                     <?}?>
 
@@ -89,7 +89,7 @@ if ($access_control2 == "true") {
                     $access_id2 = intval($row2['access_id']);
                     ?>
 
-                    <p class="help-block"><input type="checkbox" id="<?=$access_id2?>" <?if (($user_access2 & $access_id2) == $access_id2) { echo 'checked'; } ?>> <?=$row2['description']?></p>
+                    <p class="help-block"><input type="checkbox" id="<?=$access_id2?>" <?php if (($user_access2 & $access_id2) == $access_id2) { echo 'checked'; } ?>> <?=$row2['description']?></p>
 
                     <?}?>
 

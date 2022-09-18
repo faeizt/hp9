@@ -29,7 +29,7 @@ include '../DB.php';
       <?php
     }
     ?>
-    <option value="<?=$id?>" <?if($id==$selected){echo"selected";}?>><?=$project_name?></option><?php 
+    <option value="<?=$id?>" <?php if($id==$selected){echo"selected";}?>><?=$project_name?></option><?php 
         if ($client != $client_current) {?>
       </optgroup><?php
     }

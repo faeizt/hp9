@@ -31,17 +31,17 @@ if ($access_control2 == "true") {
                 <ol class="breadcrumb">
                   <li ><a href="../../../config"><i class="icon-cogs"></i> Configuration</a></li>
                   <li class=""><a href="../../../config/user"><i class="icon-fire"></i> User</a></li>
-                  <li class=""><a href="../../../config/user/view.php?user_id=<?if(isset($_GET['user_id']))echo $_GET['user_id'];?>"><i class="icon-user"></i> <?if(isset($row['username']))echo $row['username'];?></a></li>
+                  <li class=""><a href="../../../config/user/view.php?user_id=<?php if(isset($_GET['user_id']))echo $_GET['user_id'];?>"><i class="icon-user"></i> <?php if(isset($row['username']))echo $row['username'];?></a></li>
                   <li class="active"><i class="icon-briefcase"></i> Assign Contract</li>
                 </ol>
               </div>
             
         <form class="form-horizontal" role="form" style="margin-top:10px">
-        <input type="hidden" id="ac" value="<?if(isset($_GET['ac'])) echo $_GET['ac'];?>">     
-        <input type="hidden" id="role" value="<?if(isset($row_ac['role']))echo $row_ac['role'];?>">     
-        <input type="hidden" id="client" value="<?if(isset($row_ac['client_code']))echo $row_ac['client_code'];?>">     
-        <input type="hidden" id="project" value="<?if(isset($row_ac['project_code']))echo $row_ac['project_code'];?>">     
-        <input type="hidden" id="user_id" value="<?if(isset($_GET['user_id']))echo $_GET['user_id'];?>">     
+        <input type="hidden" id="ac" value="<?php if(isset($_GET['ac'])) echo $_GET['ac'];?>">     
+        <input type="hidden" id="role" value="<?php if(isset($row_ac['role']))echo $row_ac['role'];?>">     
+        <input type="hidden" id="client" value="<?php if(isset($row_ac['client_code']))echo $row_ac['client_code'];?>">     
+        <input type="hidden" id="project" value="<?php if(isset($row_ac['project_code']))echo $row_ac['project_code'];?>">     
+        <input type="hidden" id="user_id" value="<?php if(isset($_GET['user_id']))echo $_GET['user_id'];?>">     
         <div class="col-md-9  with-sidebar">
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-bookmark "></i> Client</label>
@@ -71,8 +71,8 @@ if ($access_control2 == "true") {
                 ?>
 
         <form class="form-horizontal" role="form" style="margin-top:10px">
-        <input type="hidden" id="role" value="<?if(isset($row['role_id']))echo $row['role_id'];?>">     
-        <input type="hidden" id="user_id" value="<?if(isset($_GET['user_id']))echo $_GET['user_id'];?>">     
+        <input type="hidden" id="role" value="<?php if(isset($row['role_id']))echo $row['role_id'];?>">     
+        <input type="hidden" id="user_id" value="<?php if(isset($_GET['user_id']))echo $_GET['user_id'];?>">     
 
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-star "></i> Access</label>
@@ -91,7 +91,7 @@ if ($access_control2 == "true") {
 
 
 
-                    <p class="help-block"><input type="checkbox" id="<?=$access_id?>" <?if (($user_access & $access_id) == $access_id) { echo 'checked'; } ?>> <?=$row_ac_list['description']?></p>
+                    <p class="help-block"><input type="checkbox" id="<?=$access_id?>" <?php if (($user_access & $access_id) == $access_id) { echo 'checked'; } ?>> <?=$row_ac_list['description']?></p>
 
                     <?}?>
 
@@ -119,7 +119,7 @@ if ($access_control2 == "true") {
             <p>Currently Reviewing Access For </p><hr><p></p>
             <p>
                 </p><ul>
-                    <li><?if(isset($row['username']))echo  "User: ".$row['username'];?></li>
+                    <li><?php if(isset($row['username']))echo  "User: ".$row['username'];?></li>
                     <li><?echo  "Contract: ".$row_ac['project_name'];?></li>
                     <li><?echo  "Access Code: ".$row_ac['access'];?></li>
                 </ul>

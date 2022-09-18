@@ -63,7 +63,7 @@ if ($access_control == "true") {
                   </div>
                 </li>
               </ol>
-                <div id="inventory_filter_div"style="display:<?if (isset($_GET['date_type']) && isset($_GET['begin']) && isset($_GET['end'])) {echo"none";}?>">
+                <div id="inventory_filter_div"style="display:<?php if (isset($_GET['date_type']) && isset($_GET['begin']) && isset($_GET['end'])) {echo"none";}?>">
                   <div class="panel panel-default">
                     <div class="panel-body" style="">
                               <div class="form-group">

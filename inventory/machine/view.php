@@ -28,9 +28,9 @@ if ($access_control == "true") {
       }
         ?>              
         <form class="form-horizontal" role="form" style="margin-top:10px">
-        <input type="hidden" id="machine_id" value="<?if(isset($row['product_id']))echo $row['product_id'];?>">             
-        <input type="hidden" id="client" value="<?if(isset($row['client_code']))echo $row['client_code'];?>">     
-        <input type="hidden" id="project" value="<?if(isset($row['project_code']))echo $row['project_code'];?>">     
+        <input type="hidden" id="machine_id" value="<?php if(isset($row['product_id']))echo $row['product_id'];?>">             
+        <input type="hidden" id="client" value="<?php if(isset($row['client_code']))echo $row['client_code'];?>">     
+        <input type="hidden" id="project" value="<?php if(isset($row['project_code']))echo $row['project_code'];?>">     
         
         <div class="col-md-9  with-sidebar">
             <div class="form-group">

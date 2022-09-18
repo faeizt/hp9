@@ -20,10 +20,10 @@ else{
 // echo $_SESSION['profile_id']; 
 ?>
 <script type="text/javascript" src="../js/jquery.form.js"></script>
-<input type="hidden" id="username" value="<?if(isset($user)){echo $username;}?>">
-<input type="hidden" id="id" value="<?if(isset($row['user_id'])){echo $row['user_id'];}?>">
-<input type="hidden" id="role" value="<?if(isset($row['role_id'])){echo $row['role_id'];}?>">
-<input type="hidden" id="specialization" value="<?if(isset($row['specialization'])){echo $row['specialization'];}?>">
+<input type="hidden" id="username" value="<?php if(isset($user)){echo $username;}?>">
+<input type="hidden" id="id" value="<?php if(isset($row['user_id'])){echo $row['user_id'];}?>">
+<input type="hidden" id="role" value="<?php if(isset($row['role_id'])){echo $row['role_id'];}?>">
+<input type="hidden" id="specialization" value="<?php if(isset($row['specialization'])){echo $row['specialization'];}?>">
       <!-- Submenu Navigation -->
       <nav class="navbar navbar-default" role="navigation">
       <div class="navbar-header visible-xs">
@@ -39,7 +39,7 @@ else{
         <div id="myScrollspy" class="collapse navbar-collapse  submenu-colls">
           <ul class="nav navbar-nav-thin navbar-nav-leftborder-light vert-menu-border">
             <!-- <li id="btn_new_application"><a ><span class="glyphicon glyphicon-file"></span> New</a></li> -->
-            <?if(isset($_GET['user'])){?><li id="btn_save_profile"><a ><span class="glyphicon glyphicon-check"></span> Save</a></li><?}else{?>
+            <?php if(isset($_GET['user'])){?><li id="btn_save_profile"><a ><span class="glyphicon glyphicon-check"></span> Save</a></li><?}else{?>
             <li id="btn_add_profile"><a ><span class="glyphicon glyphicon-check"></span> Add</a></li><?}?>
           </ul>          
         </div><!--/.nav-collapse -->
@@ -55,7 +55,7 @@ else{
             </ol>
 
           </div>
-        <div class="col-md-3 <?if($new == true){?>hide<?}?>" style="margin-top: 20px;">
+        <div class="col-md-3 <?php if($new == true){?>hide<?}?>" style="margin-top: 20px;">
         <style>
           .preview
           {
@@ -82,7 +82,7 @@ else{
             <div class=" col-md-offset-1 avatar-box" style="margin-bottom:20px">
 
                 <div class="personal-image" id="preview">
-                    <img src="../images/uploads/<?if(isset($row['profile_image'])){echo $row['profile_image'];}?>" style="width: 200px;" class="avatar img-thumbnail" alt="avatar">
+                    <img src="../images/uploads/<?php if(isset($row['profile_image'])){echo $row['profile_image'];}?>" style="width: 200px;" class="avatar img-thumbnail" alt="avatar">
 
                 </div>
 
@@ -111,7 +111,7 @@ else{
             <i id="profile_alert-icon" class="icon-lightbulb"></i> <span id="profile_alert"> Make your changes & hit save button.</span>
           </div>    
           <fieldset>
-          <?if(!isset($_GET['user'])){?>
+          <?php if(!isset($_GET['user'])){?>
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-credit-card"></i> Username </label>
                 <div class="col-sm-6">
@@ -124,7 +124,7 @@ else{
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-credit-card"></i> Full Name </label>
                 <div class="col-sm-6">
-                    <input id="profile_name" name="full-name" type="text" placeholder="Full Name" value="<?if(isset($_GET['user'])){echo $row['name'];}?>" 
+                    <input id="profile_name" name="full-name" type="text" placeholder="Full Name" value="<?php if(isset($_GET['user'])){echo $row['name'];}?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -132,7 +132,7 @@ else{
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-briefcase"></i> Position </label>
                 <div class="col-sm-6">
-                    <input id="profile_position" name="full-name" type="text" placeholder="Designation" value="<?if(isset($_GET['user'])){echo $row['designation'];}?>" 
+                    <input id="profile_position" name="full-name" type="text" placeholder="Designation" value="<?php if(isset($_GET['user'])){echo $row['designation'];}?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -140,7 +140,7 @@ else{
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-phone"></i> Office Phone Number </label>
                 <div class="col-sm-6">
-                    <input id="profile_phone" name="full-name" type="text" placeholder="Office Phone Number" value="<?if(isset($_GET['user'])){echo $row['phone'];}?>" 
+                    <input id="profile_phone" name="full-name" type="text" placeholder="Office Phone Number" value="<?php if(isset($_GET['user'])){echo $row['phone'];}?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -148,7 +148,7 @@ else{
             <div class="form-group">
                 <label class="col-sm-4 control-label"> <i class="fa fa-tablet"></i> Mobile Phone Number</label>
                 <div class="col-sm-6">
-                    <input id="profile_mobile" name="full-name" type="text" placeholder="Mobile Phone Number" value="<?if(isset($_GET['user'])){echo $row['mobile'];}?>" 
+                    <input id="profile_mobile" name="full-name" type="text" placeholder="Mobile Phone Number" value="<?php if(isset($_GET['user'])){echo $row['mobile'];}?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -156,7 +156,7 @@ else{
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-envelope"></i> Email Address</label>
                 <div class="col-sm-6">
-                    <input id="profile_email" name="full-name" type="text" placeholder="Email Address" value="<?if(isset($_GET['user'])){echo $row['email'];}?>" 
+                    <input id="profile_email" name="full-name" type="text" placeholder="Email Address" value="<?php if(isset($_GET['user'])){echo $row['email'];}?>" 
                     class="form-control"> 
                     <p class="help-block"></p>
                 </div>
@@ -171,7 +171,7 @@ else{
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-bookmark "></i> Skill Sets</label>
                 <div class="col-sm-6">
-                    <input id="profile_skillset" name="full-name" type="text" placeholder="Skill Sets" value="<?if(isset($_GET['user'])){echo $row['skillset'];}?>" 
+                    <input id="profile_skillset" name="full-name" type="text" placeholder="Skill Sets" value="<?php if(isset($_GET['user'])){echo $row['skillset'];}?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -186,7 +186,7 @@ else{
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-key "></i> Password</label>
                 <div class="col-sm-6">
-                    <input id="profile_password" name="full-name" type="password" placeholder="Password" value="<?if(isset($_GET['user'])){echo 'dmmypaswd';}?>" 
+                    <input id="profile_password" name="full-name" type="password" placeholder="Password" value="<?php if(isset($_GET['user'])){echo 'dmmypaswd';}?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>
@@ -194,7 +194,7 @@ else{
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-key "></i> Retype Password</label>
                 <div class="col-sm-6">
-                    <input id="profile_re_password" name="full-name" type="password" placeholder="Retype Password" value="<?if(isset($_GET['user'])){echo 'dmmypaswd';}?>" 
+                    <input id="profile_re_password" name="full-name" type="password" placeholder="Retype Password" value="<?php if(isset($_GET['user'])){echo 'dmmypaswd';}?>" 
                     class="form-control">
                     <p class="help-block"></p>
                 </div>

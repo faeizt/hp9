@@ -18,14 +18,14 @@ if(isset($_GET['case_id'])){
 }
 ?>
 
-<input type="hidden" id="case_id" value="<?if(isset($case_id)){echo $case_id;}?>">
-<input type="hidden" id="client" value="<?if(isset($row['client_code'])){echo $row['client_code'];}?>">
-<input type="hidden" id="report_channel" value="<?if(isset($row['via'])){echo $row['via'];}?>">
-<input type="hidden" id="service_type" value="<?if(isset($row['servType'])){echo $row['servType'];}?>">
-<input type="hidden" id="category" value="<?if(isset($row['cat'])){echo $row['cat'];}?>">
-<input type="hidden" id="product" value="<?if(isset($row['product'])){echo $row['product'];}?>">
-<input type="hidden" id="severity" value="<?if(isset($row['flag'])){echo $row['flag'];}?>">
-<input type="hidden" id="machine" value="<?if(isset($row['product'])){echo $row['product'];}?>">
+<input type="hidden" id="case_id" value="<?php if(isset($case_id)){echo $case_id;}?>">
+<input type="hidden" id="client" value="<?php if(isset($row['client_code'])){echo $row['client_code'];}?>">
+<input type="hidden" id="report_channel" value="<?php if(isset($row['via'])){echo $row['via'];}?>">
+<input type="hidden" id="service_type" value="<?php if(isset($row['servType'])){echo $row['servType'];}?>">
+<input type="hidden" id="category" value="<?php if(isset($row['cat'])){echo $row['cat'];}?>">
+<input type="hidden" id="product" value="<?php if(isset($row['product'])){echo $row['product'];}?>">
+<input type="hidden" id="severity" value="<?php if(isset($row['flag'])){echo $row['flag'];}?>">
+<input type="hidden" id="machine" value="<?php if(isset($row['product'])){echo $row['product'];}?>">
 
       <div id="page-wrapper" >
           <div class="col-lg-12">
