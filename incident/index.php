@@ -23,7 +23,7 @@ if ($access_control == "true") {
 if (isset($_GET['date_type']) && isset($_GET['begin']) && isset($_GET['end'])) {?>
 <input type="hidden" id="date_type" value="<?=$_GET['date_type']?>">
 <input type="hidden" id="begin_date" value="<?=$_GET['begin']?>">
-<input type="hidden" id="end_date" value="<?=$_GET['end']?>"><?                }
+<input type="hidden" id="end_date" value="<?=$_GET['end']?>"><?php                }
 ?>
 
 
