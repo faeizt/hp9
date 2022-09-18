@@ -105,7 +105,7 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
         $row        =   mysqli_fetch_array( $result );
       }
       ?>
-      <input type="hidden" id="case_id" value="<?if(isset($case_id))echo $case_id;?>">      
+      <input type="hidden" id="case_id" value="<?php  if(isset($case_id))echo $case_id;?>">      
       <div class="col-lg-8" id="incident">
           <div class="info"  >
             <span class="name"><i class="icon-wrench"></i>
@@ -278,7 +278,7 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
             <tr><td><i class="fa fa-desktop"></i> Machine Type</td><td><?=$row['machine']?></td></tr>
             <tr><td><i class="fa fa-ticket"></i> Service Type</td><td><?=$row['typeDesc']?></td></tr>    
             <tr><td><i class="fa fa-ticket"></i> Category</td><td><?=$row['catDesc']?></td></tr>              
-              <!-- <tr><td><i class="icon-retweet"></i> Recurrence</td><td><?if ($row['recurrence']=="") {
+              <!-- <tr><td><i class="icon-retweet"></i> Recurrence</td><td><?php  if ($row['recurrence']=="") {
                 echo "No";
               }else{echo $row['recurrence'];}?></td></tr> -->
               <tr><td><i class="icon-map-marker"></i> Site Name</td><td><?=$row['site_name']?></td></tr>
@@ -382,6 +382,7 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
     });    
 
   });
+  alert( "asfsadfasdf" $('#case_id').val());
   $('#div_incident_status').load('incident_status.php?case_id='+$('#case_id').val(),function(){  });
   $('#modal_update_status .modal-body').load('update_status/?case_id='+$('#case_id').val(),function(){  });
   $('#modal_assign_engineer .modal-body').load('assign_engineer/',function(){  });
