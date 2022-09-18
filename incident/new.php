@@ -18,7 +18,7 @@ if(isset($_GET['case_id'])){
 }
 ?>
 
-<input type="hidden" id="case_id" value="<?if(isset($case_id)){echo $case_id;}?>">
+<input type="hidden" id="case_id" value="<?php if(isset($case_id)){echo $case_id;}?>">
 <input type="hidden" id="client" value="<?if(isset($row['client_code'])){echo $row['client_code'];}?>">
 <input type="hidden" id="report_channel" value="<?if(isset($row['via'])){echo $row['via'];}?>">
 <input type="hidden" id="service_type" value="<?if(isset($row['servType'])){echo $row['servType'];}?>">

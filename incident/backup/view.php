@@ -52,7 +52,8 @@ $role =  $_SESSION['usertype'];
           </ul>          
         </div><!--/.nav-collapse -->
       </nav><!--/.navbar-default -->
-      <?}?>
+      <?php
+    }?>
       <!-- end of Submenu -->
       <div id="page-wrapper" >
           <div class="col-lg-12">

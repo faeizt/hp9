@@ -138,7 +138,8 @@ if ($access_control == "true") {
 
                     </tbody>
                    </table>
-                   <?}?>
+                   <?php 
+                  }?>
                 </div>
             </div>
       </div><!-- /#page-wrapper -->
