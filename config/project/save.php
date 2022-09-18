@@ -50,5 +50,5 @@ if(isset($_POST['project_name'])){
         }
     }
     echo"SAVED";
-}else{?><?}
+}else{?><?php }
 ?>

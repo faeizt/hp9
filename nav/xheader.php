@@ -125,11 +125,11 @@ switch ($_SESSION['usertype']) {
 
             </li>
 
-            <li<?php if ($nav_title == "dasboard"){?> class="active"<?} ?>><a href="<?=$nav_control?>"><span><i class="fa fa-dashboard"></i></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DASHBOARD</span></a></li>
-            <li<?php if ($nav_title == "incident"){?> class="active"<?} ?>><a href="<?=$nav_control?>incident"><span><i class="fa fa-wrench"></i></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INCIDENT</span></a></li>
-            <li<?php if ($nav_title == "report"){?> class="active"<?} ?>><a href="<?=$nav_control?>report"><span><i class="fa fa-signal"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPORT</span></a></li>
-            <li<?php if ($nav_title == "inventory"){?> class="active"<?} ?>><a href="<?=$nav_control?>inventory"><span><i class="fa fa-dropbox"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INVENTORY</span></a></li>
-            <li<?php if ($nav_title == "config"){?> class="active"<?} ?>><a href="<?=$nav_control?>config"><span><i class="fa fa-cogs"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SETTING</span></a></li>
+            <li<?php if ($nav_title == "dasboard"){?> class="active"<?php } ?>><a href="<?=$nav_control?>"><span><i class="fa fa-dashboard"></i></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DASHBOARD</span></a></li>
+            <li<?php if ($nav_title == "incident"){?> class="active"<?php } ?>><a href="<?=$nav_control?>incident"><span><i class="fa fa-wrench"></i></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INCIDENT</span></a></li>
+            <li<?php if ($nav_title == "report"){?> class="active"<?php } ?>><a href="<?=$nav_control?>report"><span><i class="fa fa-signal"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REPORT</span></a></li>
+            <li<?php if ($nav_title == "inventory"){?> class="active"<?php } ?>><a href="<?=$nav_control?>inventory"><span><i class="fa fa-dropbox"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INVENTORY</span></a></li>
+            <li<?php if ($nav_title == "config"){?> class="active"<?php } ?>><a href="<?=$nav_control?>config"><span><i class="fa fa-cogs"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SETTING</span></a></li>
           </ul>
 
           <?php

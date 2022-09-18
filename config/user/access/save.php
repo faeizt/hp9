@@ -18,5 +18,5 @@ if(isset($_POST['user_id'])){
             echo $addUser;
         }
     // }
-}else{?>fasfas<?}
+}else{?>fasfas<?php }
 ?>

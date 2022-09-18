@@ -74,7 +74,7 @@ if ($access_control2 == "true") {
 
                     <p class="help-block" style="padding-left: 20px"><input type="checkbox" id="<?=$access_id?>" <?php if (($user_access & $access_id) == $access_id) { echo 'checked'; } ?>> <?=$row['description']?></p>
 
-                    <?}?>
+                    <?php }?>
 
                 </div>
           <div class="col-lg-6" id="access_form2">
@@ -91,7 +91,7 @@ if ($access_control2 == "true") {
 
                     <p class="help-block"><input type="checkbox" id="<?=$access_id2?>" <?php if (($user_access2 & $access_id2) == $access_id2) { echo 'checked'; } ?>> <?=$row2['description']?></p>
 
-                    <?}?>
+                    <?php }?>
 
 
           </div>

@@ -53,5 +53,5 @@ if(isset($_POST['username'])){
     }
 
 
-}else{?><?}
+}else{?><?php }
 ?>

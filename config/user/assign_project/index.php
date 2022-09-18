@@ -93,7 +93,7 @@ if ($access_control2 == "true") {
 
                     <p class="help-block"><input type="checkbox" id="<?=$access_id?>" <?php if (($user_access & $access_id) == $access_id) { echo 'checked'; } ?>> <?=$row_ac_list['description']?></p>
 
-                    <?}?>
+                    <?php }?>
 
                 </div>
             </div>                                                                       

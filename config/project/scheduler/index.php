@@ -35,7 +35,7 @@ if(isset($_GET['project_code'])){
   $project_code = $_GET['project_code'];
   ?>
   <input type="hidden" id="project_code" value="<?=$project_code?>">
-  <?}?>
+  <?php }?>
 
 <div id="page-wrapper">
   <div class="panel-body">

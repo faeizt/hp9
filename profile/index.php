@@ -39,8 +39,8 @@ else{
         <div id="myScrollspy" class="collapse navbar-collapse  submenu-colls">
           <ul class="nav navbar-nav-thin navbar-nav-leftborder-light vert-menu-border">
             <!-- <li id="btn_new_application"><a ><span class="glyphicon glyphicon-file"></span> New</a></li> -->
-            <?php if(isset($_GET['user'])){?><li id="btn_save_profile"><a ><span class="glyphicon glyphicon-check"></span> Save</a></li><?}else{?>
-            <li id="btn_add_profile"><a ><span class="glyphicon glyphicon-check"></span> Add</a></li><?}?>
+            <?php if(isset($_GET['user'])){?><li id="btn_save_profile"><a ><span class="glyphicon glyphicon-check"></span> Save</a></li><?php }else{?>
+            <li id="btn_add_profile"><a ><span class="glyphicon glyphicon-check"></span> Add</a></li><?php }?>
           </ul>          
         </div><!--/.nav-collapse -->
       </nav><!--/.navbar-default -->
@@ -55,7 +55,7 @@ else{
             </ol>
 
           </div>
-        <div class="col-md-3 <?php if($new == true){?>hide<?}?>" style="margin-top: 20px;">
+        <div class="col-md-3 <?php if($new == true){?>hide<?php }?>" style="margin-top: 20px;">
         <style>
           .preview
           {
@@ -120,7 +120,7 @@ else{
                     <p class="help-block"></p>
                 </div>
             </div> 
-            <?}?>   
+            <?php }?>   
             <div class="form-group">
                 <label class="col-sm-4 control-label"><i class="fa fa-credit-card"></i> Full Name </label>
                 <div class="col-sm-6">

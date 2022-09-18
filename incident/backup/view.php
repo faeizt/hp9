@@ -46,9 +46,9 @@ $role =  $_SESSION['usertype'];
           </div>   
         <div id="myScrollspy" class="collapse navbar-collapse  submenu-colls">
           <ul class="nav navbar-nav-thin navbar-nav-leftborder-light vert-menu-border">
-            <?php if (($PAC & 512) == 512){   ?><li id="update_status"><a href="#"><span class="glyphicon glyphicon-share-alt"></span> Update Incident Status</a></li><?}?>
-            <?php if (($PAC & 256) == 256){   ?><li id="edit_case"><a href="update/?app_no=<?=$case_id?>"><span class="glyphicon glyphicon-pencil"></span> Edit Incident Details</a></li><?}?>
-            <?php if (($PAC & 1024) == 1024){ ?><li id="assign_engineer"><a href="#"><span class="glyphicon glyphicon-user"></span> Assign Engineer</a></li><?}?>
+            <?php if (($PAC & 512) == 512){   ?><li id="update_status"><a href="#"><span class="glyphicon glyphicon-share-alt"></span> Update Incident Status</a></li><?php }?>
+            <?php if (($PAC & 256) == 256){   ?><li id="edit_case"><a href="update/?app_no=<?=$case_id?>"><span class="glyphicon glyphicon-pencil"></span> Edit Incident Details</a></li><?php }?>
+            <?php if (($PAC & 1024) == 1024){ ?><li id="assign_engineer"><a href="#"><span class="glyphicon glyphicon-user"></span> Assign Engineer</a></li><?php }?>
           </ul>          
         </div><!--/.nav-collapse -->
       </nav><!--/.navbar-default -->
