@@ -382,7 +382,6 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
     });    
 
   });
-  alert( "asfsadfasdf" $('#case_id').val());
   $('#div_incident_status').load('incident_status.php?case_id='+$('#case_id').val(),function(){  });
   $('#modal_update_status .modal-body').load('update_status/?case_id='+$('#case_id').val(),function(){  });
   $('#modal_assign_engineer .modal-body').load('assign_engineer/',function(){  });
