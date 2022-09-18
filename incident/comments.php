@@ -22,7 +22,7 @@ if(isset($_GET['case_id'])){
   </div>
 
 
-  <?
+<?php
     while($row = mysqli_fetch_array($result)){?>
       <div class="content" style="margin-bottom:20px">
         <div class="media">

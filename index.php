@@ -222,7 +222,7 @@ $project_code = substr($project_code,0,-1);
 							Upcoming Events
               <hr/>
 						</div>
-              <?
+<?php
               	$username=$_SESSION['username'];
                 $sqlquery = "SELECT id,owner,title, DATE_FORMAT(BEGIN,'%d/%m/%Y') begin, DATE_FORMAT(END,'%d/%m/%Y') end FROM events where begin > now()";
                 $result = mysqli_query($con,$sqlquery) or die("sql= ". $sqlquery);          //query
@@ -242,7 +242,7 @@ $project_code = substr($project_code,0,-1);
                   </div>
                   <div class="clear"></div>
                 </div>                                        
-                  <?
+<?php
                 }?>                               
 
 <!--End .article-->

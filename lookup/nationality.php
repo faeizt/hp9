@@ -5,7 +5,7 @@ include '../DB.php';
   $result =  mysqli_query($con,"SELECT *  FROM countries");          //query
   $num  = mysqli_num_rows($result);
 
-  $i=0;?><option></option><?
+  $i=0;?><option></option><?php
   while ($row = mysqli_fetch_assoc($result)) {
     $name    =  $row["name"];
     $id 	 =  $row["id"];

@@ -92,7 +92,7 @@ if ($access_control == "true") {
           </div>
                 </div><!-- /.row -->
                 <div class="table-responsive" id="div_app_list">              
-                <?
+<?php
                 $sqlquery = "SELECT * FROM casesaddr order by open_date desc";
                 if (isset($_GET['date_type']) && isset($_GET['begin']) && isset($_GET['end'])) {
 				$date_type  	= $_GET['date_type'];
@@ -122,7 +122,7 @@ if ($access_control == "true") {
                       </tr>
                       </thead>
                     <tbody>
-                    <?
+                    <?php
                     while($row = mysqli_fetch_array($result)){
                         $i++;
                         echo      "<tr data=". $row['case_id']."><td>".$i."</td>";?>
@@ -132,7 +132,7 @@ if ($access_control == "true") {
                         <td><?=$row['title']?></td>
 
 
-                        </tr><?
+                        </tr><?php
                     }
                     ?>                      
 

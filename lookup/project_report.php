@@ -15,7 +15,7 @@ include '../DB.php';
   $i 		=	0;
   if($num>1){?>
   <option></option>
-  <?
+  <?php
   }
   while ($row = mysqli_fetch_assoc($result)) {
     $id    =  $row["project_code"];
@@ -25,12 +25,13 @@ include '../DB.php';
 
     $i++;
     if ($client != $client_current) {$client_current=$client;?>
-      <optgroup label="<?=$client?>" data-subtext="<?=$name?>" ><?
+      <optgroup label="<?=$client?>" data-subtext="<?=$name?>" >
+      <?php
     }
     ?>
     <option value="<?=$id?>" <?if($id==$selected){echo"selected";}?>><?=$project_name?></option><?php 
         if ($client != $client_current) {?>
-      </optgroup><?
+      </optgroup><?php
     }
     } 
 

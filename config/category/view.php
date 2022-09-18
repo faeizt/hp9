@@ -15,7 +15,7 @@ if ($access_control2 == "true") {
                   <li class="active"><i class="icon-plus"></i> New Category</li>
                 </ol>
               </div>
-      <?
+<?php
       include '../../DB.php'; //DB Connection String
 
       if(isset($_GET['category_code'])){

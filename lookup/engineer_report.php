@@ -17,13 +17,13 @@ include '../DB.php';
 
     $i++;
     if ($specialization != $specialization_current) {$specialization_current=$specialization;?>
-      <optgroup label="<?=$specialization?>"  ><?
+      <optgroup label="<?=$specialization?>"  ><?php
     }
     ?>
 
     <option value="<?=$id?>" <?if($id==$selected){echo"selected";}?>><?=$name?></option><?php 
           if ($client != $client_current) {?>
-      </optgroup><?
+      </optgroup><?php
     }
   } 
 

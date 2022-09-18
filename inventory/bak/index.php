@@ -46,7 +46,7 @@ if ($access_control == "true") {
                   </div>
                 </div><!-- /.row -->
                 <div class="table-responsive" id="div_app_list">              
-                <?
+<?php
                 include '../DB.php';
                 $sqlquery = "SELECT * FROM v_inventory order by id desc";
                 $result = mysqli_query($con,$sqlquery) or die("sql= ". $sqlquery);          //query
@@ -69,7 +69,7 @@ if ($access_control == "true") {
                       </tr>
                       </thead>
                     <tbody>
-                    <?
+                    <?php
                     while($row = mysqli_fetch_array($result)){
                         $i++;
                         echo      "<tr data=". $row['id']."><td>".$i."</td>";?>
@@ -78,7 +78,7 @@ if ($access_control == "true") {
                         <td><?=$row['project_name']?></td>                        
 
 
-                        </tr><?
+                        </tr><?php
                     }
                     ?>                      
 

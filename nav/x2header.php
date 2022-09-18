@@ -135,7 +135,7 @@ switch ($_SESSION['usertype']) {
             <li<? if ($nav_title == "config"){?> class="active"<?} ?>><a href="<?=$nav_control?>config"><span><i class="fa fa-cogs"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SETTING</span></a></li>
           </ul>
 
-          <?
+<?php
           include $nav_control.'DB.php';
 
           $sqlquery = "SELECT COUNT(id) unread FROM notification WHERE viewflag = '0';";
@@ -167,12 +167,12 @@ switch ($_SESSION['usertype']) {
            Notification <b class="caret"></b></a>
               <ul class="dropdown-menu">
 
-              <?
+<?php
               while($row = mysqli_fetch_array($result)){
               $i++;
               ?>
                 <li><a href="<?=$nav_control?>notification/view.php?app_no=<?=$row['case_id']?>"><i class="icon-file-alt"></i> <?=$row['case_id']?> : <?=$row['status']?><br/><i><?=$row['updates']?></i></a></li>
-              <?
+<?php
               }
               ?>          
                

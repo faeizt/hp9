@@ -6,7 +6,7 @@ $_SESSION['nav_title'] = "config";
 include ("../../nav/header.php");
 if ($access_control2 == "true") {
 ?>
-  <?
+  <?php
   include '../../../DB.php'; //DB Connection String
 
   if(isset($_GET['user_id'])){

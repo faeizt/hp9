@@ -112,12 +112,13 @@ $project = "";
 <div class="col-md-3 form-sidebar">
           <p>Scheduled Events<hr/></p>
           <p>
-              <ol id="events" type="1"><?
+              <ol id="events" type="1">
+                <?php
               	$username=$_SESSION['username'];
                 $sqlquery = "SELECT id,owner,title, DATE_FORMAT(BEGIN,'%d/%m/%Y') begin, DATE_FORMAT(END,'%d/%m/%Y') end FROM events where owner in ($project)";
                 $result = mysqli_query($con,$sqlquery) or die("sql= ". $sqlquery);          //query
                 while($row = mysqli_fetch_array($result)){?>
-                  <a style="cursor:pointer"><li id="<?=$row['id']?>"><?=$row['title']?> (<?=$row['begin']?>) - <?=$row['owner']?></li></a><?
+                  <a style="cursor:pointer"><li id="<?=$row['id']?>"><?=$row['title']?> (<?=$row['begin']?>) - <?=$row['owner']?></li></a><?php
                 }?>                               
               </ol>
           </p>  

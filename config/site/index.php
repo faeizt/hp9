@@ -45,7 +45,7 @@ if ($access_control2 == "true") {
                     </ol>
                   </div>
                 </div><!-- /.row -->
-                <div class="table-responsive" id="div_app_list"><?
+                <div class="table-responsive" id="div_app_list"><?php
             include '../../DB.php';
             $getSite =  "SELECT v.*,CONCAT(addr1,' ',addr2,' ',postcode,' ',city,' ',statename) addr, p.project_code, p.project_name FROM vclientaddr v left join project p on p.project_code = v.project_code order by site_id desc";
             //             echo $getSite;
@@ -74,7 +74,7 @@ if ($access_control2 == "true") {
                 </thead>
                 <tbody>
 
-            <?
+            <?php
             while ($row = mysqli_fetch_assoc($result_site)) {
 
               $id       =  $row["site_id"];

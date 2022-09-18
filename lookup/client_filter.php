@@ -11,7 +11,7 @@ include '../DB.php';
   $i    = 0;
   if($num>1){?>
   <option></option>
-  <?
+<?php
   }
   while ($row = mysqli_fetch_assoc($result)) {
     $id    =  $row["client_code"];

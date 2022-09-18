@@ -5,7 +5,7 @@ $_SESSION['nav_title'] = "inventory";
 
 ?>
          
-                <?
+<?php
             include '../../DB.php';
 
                   $sql="SELECT * FROM product p LEFT JOIN project j ON j.project_code = p.project_code ORDER BY product_id DESC";
@@ -45,7 +45,7 @@ $_SESSION['nav_title'] = "inventory";
                       </thead>
                       <tbody>
 
-                  <?
+<?php
                   while ($row = mysqli_fetch_assoc($result)) {
                     $id           = $row["product_id"];
                     $client           = $row["client_code"];

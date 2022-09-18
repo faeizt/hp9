@@ -5,7 +5,7 @@ $_SESSION['nav_title'] = "incident";
 
 ?>
          
-                <?
+<?php
                 $sqlquery = "SELECT * FROM casesaddr order by open_date desc";
                 if(isset($_POST['fltr'])){
                   $fltr = $_POST['fltr'];
@@ -48,7 +48,7 @@ $_SESSION['nav_title'] = "incident";
                       </tr>
                       </thead>
                     <tbody>
-                    <?
+<?php
                     while($row = mysqli_fetch_array($result)){
                         $i++;
                         echo      "<tr data=". $row['case_id']."><td>".$i."</td>";?>
@@ -58,7 +58,7 @@ $_SESSION['nav_title'] = "incident";
                         <td><?=$row['title']?></td>
 
 
-                        </tr><?
+                        </tr><?php
                     }
                     ?>                      
 

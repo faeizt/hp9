@@ -45,7 +45,7 @@ if ($access_control2 == "true") {
                 </div><!-- /.row -->
       <div id="page-wrapper">
               <div class="panel-body">
-                <div class="table-responsive" id="div_app_list"><?
+                <div class="table-responsive" id="div_app_list"><?php
             include '../../DB.php';
 
 $sqlquery = "SELECT * FROM code_definition where code_cat='servicecat' order by code desc ";

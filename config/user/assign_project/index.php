@@ -6,7 +6,7 @@ $_SESSION['nav_title'] = "config";
 include ("../../../nav/header.php");
 if ($access_control2 == "true") {
 ?>
-  <?
+<?php
   include '../../../DB.php'; //DB Connection String
 //    $user_access  = "";
 
@@ -64,7 +64,7 @@ if ($access_control2 == "true") {
                     <p class="help-block"></p>
                 </div>
             </div>                                                                                                                                       
-           <?
+<?php
 
                 $sqlquery = "SELECT * FROM access WHERE type='Button' and  description IS NOT NULL order by id";
                 $result = mysqli_query($con,$sqlquery) or die("sql= ". $sqlquery);          //query
@@ -79,7 +79,7 @@ if ($access_control2 == "true") {
                 <div class="col-sm-6" id="access_form">
                     <input type="hidden" id="assign_access">
 
-                    <?
+<?php
                     $i=0;
                     $access_id=0;
                     while($row_ac_list = mysqli_fetch_array($result)){
@@ -113,7 +113,7 @@ if ($access_control2 == "true") {
           </div>
 
         <div class="col-md-3 form-sidebar">      
-        <?
+<?php
         if(isset($_GET['ac'])) {
           ?>
             <p>Currently Reviewing Access For </p><hr><p></p>
@@ -125,7 +125,7 @@ if ($access_control2 == "true") {
                 </ul>
             <p></p>
 
-          <?
+<?php
         }
         ?>               
             <p>Assigned Contract</p><hr><p></p>

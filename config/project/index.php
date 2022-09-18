@@ -45,7 +45,7 @@ if ($access_control2 == "true") {
                     </ol>
                   </div>
                 </div><!-- /.row -->
-                <div class="table-responsive" id="div_app_list"><?
+                <div class="table-responsive" id="div_app_list"><?php
             include '../../DB.php';
 
                   $sql="SELECT  project_code, project_name, project_descr, client_code,contract_code,accountmanager,projectmanager,clientpm,DATE_FORMAT(startdate,'%d/%m/%Y') startdate,DATE_FORMAT(enddate,'%d/%m/%Y') enddate FROM project";
@@ -78,7 +78,7 @@ if ($access_control2 == "true") {
                       </thead>
                       <tbody>
 
-                  <?
+                  <?php
                   while ($row = mysqli_fetch_assoc($result)) {
                     $project_code       = $row["project_code"];
                     $project_name       = $row["project_name"];

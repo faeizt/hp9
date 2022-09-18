@@ -17,7 +17,7 @@ if ($access_control2 == "true") {
                   <li class="active"><i class="icon-plus"></i> New  Client Site</li>
                 </ol>
               </div>
-      <?
+      <?php
       include '../../DB.php'; //DB Connection String
 
       if(isset($_GET['site_id'])){

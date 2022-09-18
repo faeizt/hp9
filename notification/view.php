@@ -15,7 +15,7 @@ if ($access_control == "true") {
       <input type="hidden" id="fltrt5" value="">
       <input type="hidden" id="fltrt6" value="">      
       <input type="hidden" id="srt" value="">        
-      <?
+      <?php
       if(isset($_GET['app_no'])){
       $case_id     =   htmlspecialchars(trim($_GET['app_no']));
       ?>
@@ -32,7 +32,7 @@ if ($access_control == "true") {
                   </div>
                 </div><!-- /.row -->
                 <div class="table-responsive" id="div_app_list">              
-                <?
+                <?php
                 include '../DB.php';
                                           $user     = $_SESSION['username'];
 
@@ -65,7 +65,7 @@ if ($access_control == "true") {
                       </tr>
                       </thead>
                     <tbody>
-                    <?
+                    <?php
                     while($row = mysqli_fetch_array($result)){
                         $i++;
                         echo      "<tr data=". $row['case_id']."><td>".$i."</td>";
@@ -75,7 +75,7 @@ if ($access_control == "true") {
                         <td><?=$row['updates']?></td>
                         <td><?=$row['user']?></td>
 
-                        </tr><?
+                        </tr><?php
                     }
                     ?>                      
 
@@ -84,7 +84,7 @@ if ($access_control == "true") {
                 </div>
             </div>
       </div><!-- /#page-wrapper -->
-      <?
+<?PHP
       }
       else{
         echo "<h1> No data selected</h1>";

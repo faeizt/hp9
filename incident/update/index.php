@@ -21,7 +21,7 @@ if ($access_control == "true") {
               
             </ol>
           </div>
-      <?
+<?php
       include '../../DB.php'; //DB Connection String
 
       if(isset($_GET['app_no'])){

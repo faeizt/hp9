@@ -44,7 +44,8 @@ if ($access_control == "true") {
                     </ol>
                   </div>
                 </div><!-- /.row -->
-                <div class="table-responsive" id="div_app_list"><?
+                <div class="table-responsive" id="div_app_list">
+<?php
             include '../../DB.php';
 
                   $sql="SELECT * FROM product p LEFT JOIN project j ON j.project_code = p.project_code ORDER BY product_id DESC";
@@ -74,7 +75,7 @@ if ($access_control == "true") {
                       </thead>
                       <tbody>
 
-                  <?
+<?php
                   while ($row = mysqli_fetch_assoc($result)) {
                     $id           = $row["product_id"];
                     $client           = $row["client_code"];

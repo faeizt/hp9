@@ -5,7 +5,7 @@ $_SESSION['nav_title'] = "inventory";
 
 ?>
          
-                <?
+<?php
                 include '../DB.php';
                 $sqlquery = "SELECT * FROM v_inventory order by id desc";
                 if(isset($_POST['fltr'])){
@@ -39,7 +39,7 @@ $_SESSION['nav_title'] = "inventory";
                       </tr>
                       </thead>
                     <tbody>
-                    <?
+                    <?php
                     while($row = mysqli_fetch_array($result)){
                         $i++;
                         echo      "<tr data=". $row['id']."><td>".$i."</td>";?>
@@ -48,7 +48,7 @@ $_SESSION['nav_title'] = "inventory";
                         <td><?=$row['project_name']?></td>                        
 
 
-                        </tr><?
+                        </tr><?php
                     }
                     ?>                      
 

@@ -45,8 +45,9 @@ if ($access_control2 == "true") {
                     </ol>
                   </div>
                 </div><!-- /.row -->
-                <div class="table-responsive" id="div_app_list"><?
-                            include '../../DB.php';
+                <div class="table-responsive" id="div_app_list">
+<?php
+include '../../DB.php';
 
 $result = mysqli_query($con,"SELECT sys_users.*,cd.code_name sts,cd1.code_name role FROM sys_users LEFT JOIN code_definition cd ON code_cat='userstatus' AND sys_users.STATUS=cd.CODE LEFT JOIN code_definition cd1 ON cd1.code_cat='usertype' AND sys_users.role_id=cd1.CODE ORDER BY user_id DESC ");          //query
 

@@ -15,7 +15,7 @@ if ($access_control == "true") {
       <input type="hidden" id="fltrt5" value="">
       <input type="hidden" id="fltrt6" value="">      
       <input type="hidden" id="srt" value="">                
-      <?
+      <?php
       include '../DB.php';
 
       $sqlquery = "SELECT COUNT(id) unread FROM notification WHERE seen = 'N';";
@@ -34,7 +34,7 @@ if ($access_control == "true") {
                   </div>
                 </div><!-- /.row -->
                 <div class="table-responsive" id="div_app_list">              
-                <?
+                <?php
                           $user     = $_SESSION['username'];
 
                 $sqlquery = "SELECT case_id, status, user, seen, notification, IF (SUBSTRING(updates,1,2) = '1 ' OR SUBSTRING(updates,1,2) = '0 ',REPLACE (updates,'s',''),updates) updates ".
@@ -64,7 +64,7 @@ if ($access_control == "true") {
                       </tr>
                       </thead>
                     <tbody>
-                    <?
+                    <?php
                     while($row = mysqli_fetch_array($result)){
                         $i++;
                         echo      "<tr data=". $row['case_id']."><td>".$i."</td>";
@@ -74,7 +74,7 @@ if ($access_control == "true") {
                         <td><?=$row['updates']?></td>
                         <td><?=$row['user']?></td>
 
-                        </tr><?
+                        </tr><?php
                     }
 
                     $sqlquery = "UPDATE notification SET seen = 'Y' where seen = 'N';";

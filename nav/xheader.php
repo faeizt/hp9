@@ -132,10 +132,10 @@ switch ($_SESSION['usertype']) {
             <li<? if ($nav_title == "config"){?> class="active"<?} ?>><a href="<?=$nav_control?>config"><span><i class="fa fa-cogs"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SETTING</span></a></li>
           </ul>
 
-          <?
+          <?php
           /*
 
-          <?
+          <?php
 
                   $dir_query = "SELECT * FROM evidence where case_id='$case_id'"; 
                   $dir_result = mysqli_query($con,$dir_query) or die(mysqli_error($con));
@@ -144,7 +144,8 @@ switch ($_SESSION['usertype']) {
                   if($dir_num>0){
                     while($dir_row = mysqli_fetch_array($dir_result)){?> 
             <div class="" style="border:1px solid #f5f5f5;padding:5px"  >              
-              <a href="../uploads/<?=$dir_row['name']?>" target="_blank"><i class="icon-paper-clip"></i> <?=$dir_row['name']?></a><span class="label label-info" style="float:right"><?=number_format($dir_row['size']/1024)?> KB</span></div><?
+              <a href="../uploads/<?=$dir_row['name']?>" target="_blank"><i class="icon-paper-clip"></i> <?=$dir_row['name']?></a><span class="label label-info" style="float:right"><?=number_format($dir_row['size']/1024)?> KB</span></div>
+              <?php
                             $i++;
             }}?>  
 

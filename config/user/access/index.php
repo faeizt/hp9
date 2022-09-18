@@ -15,7 +15,7 @@ if ($access_control2 == "true") {
       <input type="hidden" id="fltrt5" value="">
       <input type="hidden" id="fltrt6" value="">      
       <input type="hidden" id="srt" value="">                
-      <?
+      <?php
       include '../../../DB.php';
 
       if(isset($_GET['user_id'])){
@@ -43,7 +43,7 @@ if ($access_control2 == "true") {
                     </ol>
                   </div>
                 </div><!-- /.row -->
-                <?
+                <?php
 
                 $sqlquery = "SELECT * FROM access WHERE type='1- Page' and description IS NOT NULL order by id";
                 $result = mysqli_query($con,$sqlquery) or die("sql= ". $sqlquery);          //query
@@ -64,7 +64,7 @@ if ($access_control2 == "true") {
               <label class=" "><i class="fa fa-star "></i> Page Access</label>
                     <input type="hidden" id="assign_access">
 
-                    <?
+                    <?php
                     $i=0;
                     $access_id=0;
                     while($row = mysqli_fetch_array($result)){
@@ -81,7 +81,7 @@ if ($access_control2 == "true") {
                 <label ><i class="fa fa-star "></i> Setting Access</label>
                     <input type="hidden" id="assign_access2">
 
-                    <?
+                    <?php
                     $i2=0;
                     $access_id2=0;
                     while($row2 = mysqli_fetch_array($result2)){
@@ -119,7 +119,7 @@ if ($access_control2 == "true") {
         </div>
 
       </div><!-- /#page-wrapper -->
-      <?
+<?php
       }
       ?>
 

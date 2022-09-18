@@ -45,7 +45,7 @@ if ($access_control2 == "true") {
                 </ol>
               </div>
             </div><!-- /.row -->
-            <div class="table-responsive" id="div_app_list"><?
+            <div class="table-responsive" id="div_app_list"><?php
             include '../../DB.php';
 $sqlquery = "SELECT * FROM client ";
 $result = mysqli_query($con,$sqlquery) or die("sql= ". $sqlquery);          //query

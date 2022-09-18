@@ -11,7 +11,7 @@ $role =  $_SESSION['usertype'];
     <script src="../jquery-ui-1.10.3/js/jquery-ui.js"></script>    
     <script type="text/javascript" src="../js/jquery-ui-timepicker-addon.js"></script>
 
-      <?
+<?php
       $PAC  = 0;
       include '../DB.php'; //DB Connection String
 
@@ -116,7 +116,7 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
           <div id="div_incident_status"></div>
           <div class="" style="clear:both;padding:10px;margin-top: 20px;">
               <b>Supporting Evidence </b>
-            <?
+<?php
 
                   $dir_query = "SELECT * FROM evidence where case_id='$case_id'"; 
                   $dir_result = mysqli_query($con,$dir_query) or die(mysqli_error($con));
@@ -125,7 +125,8 @@ $sqlquery = "SELECT cases.state,cases.case_id case_id,IF(LENGTH(cases.case_id)>5
                   if($dir_num>0){
                     while($dir_row = mysqli_fetch_array($dir_result)){?> 
             <div class="" style="border:1px solid #f5f5f5;padding:5px"  >              
-              <a href="../images/uploads/<?=$dir_row['name']?>" target="_blank"><i class="icon-paper-clip"></i> <?=$dir_row['name']?></a><span class="label label-info" style="float:right"><?=number_format($dir_row['size']/1024)?> KB</span></div><?
+              <a href="../images/uploads/<?=$dir_row['name']?>" target="_blank"><i class="icon-paper-clip"></i> <?=$dir_row['name']?></a><span class="label label-info" style="float:right"><?=number_format($dir_row['size']/1024)?> KB</span></div>
+              <?php
                             $i++;
             }}?>                            <link href="../css/dropzone.css" type="text/css" rel="stylesheet" />
               <script src="../js/dropzone.min.js"></script>

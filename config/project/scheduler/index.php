@@ -110,12 +110,12 @@ if(isset($_GET['project_code'])){
 <div class="col-md-3 form-sidebar">
           <p>Scheduled Events<hr/></p>
           <p>
-              <ol type="1"><?
+              <ol type="1"><?php
                 $username=$_SESSION['username'];
                 $sqlquery = "SELECT id,owner,title, DATE_FORMAT(BEGIN,'%d/%m/%Y') begin, DATE_FORMAT(END,'%d/%m/%Y') end FROM events where owner = '$project_code'";
                 $result = mysqli_query($con,$sqlquery) or die("sql= ". $sqlquery);          //query
                 while($row = mysqli_fetch_array($result)){?>
-                  <li><?=$row['title']?> (<?=$row['begin']?>) - <?=$row['owner']?></li><?
+                  <li><?=$row['title']?> (<?=$row['begin']?>) - <?=$row['owner']?></li><?php
                 }?>                               
               </ol>
           </p>  

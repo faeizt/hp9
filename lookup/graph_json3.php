@@ -19,7 +19,6 @@ $h['label']= $wordChunks[$j];
 	$h['data']=$v;	
 	array_push($a, $h);
 	$v = array();
-	?><?
 }
 
 

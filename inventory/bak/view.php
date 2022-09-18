@@ -14,7 +14,7 @@ if ($access_control == "true") {
               <li class="active"><i class="icon-file"></i> View Product</li>
             </ol>
           </div>
-      <?
+<?php
       include '../DB.php'; //DB Connection String
 
       if(isset($_GET['id'])){

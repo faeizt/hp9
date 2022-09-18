@@ -8,7 +8,7 @@ include '../DB.php';
   $num  	= 	mysqli_num_rows($result);
   $i 		=	0;?>
 <option></option>
-  <?
+<?php
   while ($row = mysqli_fetch_assoc($result)) {
     $id    =  $row["severitylevel"];
     $name 	 =  $row["code_name"];

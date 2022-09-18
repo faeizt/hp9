@@ -79,7 +79,7 @@ $i=0;
                       </tr>
                     </thead>
                     <tbody>
-                    <?
+<?php
                     while($row = mysqli_fetch_array($result)){
                         $i++;
                         echo      "<tr data=". $row['case_id']."><td>".((($page-1) * 10 ) + $i)."</td>";?>
@@ -89,7 +89,7 @@ $i=0;
                         <td><?=$row['title']?></td>
 
 
-                        </tr><?
+                        </tr><?php
                     }
                     ?>                      
 

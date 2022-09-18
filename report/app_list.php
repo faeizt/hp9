@@ -131,7 +131,7 @@ $i=0;
                           </tr> -->
                   <table id="tbl_application" class="table table-hover  tablesorter">
                     <tbody>
-                    <?
+<?PHP
                     while($row = mysqli_fetch_array($result)){
                         $i++;?>
                           <tr style="border-bottom:1px solid #ddd" data="<?=$row['case_id']?>">
@@ -144,7 +144,7 @@ $i=0;
                             <p><span>Customer: <?=$row['client_code']?></span> <span>Status: <?=$row['status']?></span> </p>
                             </td>
                           </tr>
-                    <?
+<?PHP
                     }
                     ?>                      
 

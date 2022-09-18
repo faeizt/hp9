@@ -3,7 +3,8 @@ include '../DB.php';
   $selected	=   htmlspecialchars(trim($_GET['selected'])); 
   $result 	=  	mysqli_query($con,"SELECT *  FROM role where role_group = 'PAC'");          //query
   $num  	= 	mysqli_num_rows($result);
-  $i 		=	0;?><option></option><?
+  $i 		=	0;?><option></option>
+<?php
   while ($row = mysqli_fetch_assoc($result)) {
     $name    =  $row["type"];
     $id 	 =  $row["role_id"];

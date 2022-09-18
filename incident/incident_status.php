@@ -64,7 +64,7 @@ if (($row['resolve_time']!="" && $row['resolution']!="" && $row['sts']=="4") || 
         <span class="label label-warning" ><?=$row['status_open_date']?></span>
       </div>
         
-    </li>      <?
+    </li>      <?php
     }?>   
     <?if ($row['assign_time']!="" || $row['sts']=="6") {?>   
     <li class="col-xs-6 col-sm-3 " style="background:#F5F5F5">
@@ -75,7 +75,7 @@ if (($row['resolve_time']!="" && $row['resolution']!="" && $row['sts']=="4") || 
       <div style="margin-top:28px">
       <span class="label label-info" ><?=$row['status_assign_time']?></span>
       </div>
-    </li>      <?
+    </li>      <?php
     }?>            
     <?if ($row['onsite_time']!="" || $row['sts']=="1") {?>   
     <li class="col-xs-6 col-sm-3 " style="background: #F5F5F5;">
@@ -86,7 +86,7 @@ if (($row['resolve_time']!="" && $row['resolution']!="" && $row['sts']=="4") || 
       <div style="margin-top:28px">
       <span class="label label-info" ><?=$row['status_onsite_time']?></span>
       </div>
-    </li>      <?
+    </li>      <?php
     }?>        
 
     <?if ($row['pending_time']!="" || $row['sts']=="3") {?>    
@@ -98,7 +98,7 @@ if (($row['resolve_time']!="" && $row['resolution']!="" && $row['sts']=="4") || 
       <div style="margin-top:28px">
       <span class="label label-danger" ><?=$row['status_pending_time']?></span>
       </div>
-    </li><?
+    </li><?php
     }?>             
     <?if ($row['close_date']!="") {?>
     <li class="col-xs-6 col-sm-3 " style="background:#F5F5F5">
@@ -109,7 +109,7 @@ if (($row['resolve_time']!="" && $row['resolution']!="" && $row['sts']=="4") || 
       <div style="margin-top:28px">
       <span class="label label-primary"><?=$row['status_close_date']?></span>
       </div>
-    </li><?
+    </li><?php
     }?>     
     </ul>
   </div>        

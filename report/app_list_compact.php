@@ -145,7 +145,7 @@ $i=0;
                       </tr>
                      </thead>
                     <tbody>
-                    <?
+<?PHP
                     while($row = mysqli_fetch_array($result)){
                         $i++;?>
                       <tr style="border-bottom:1px solid #ddd" data="<?=$row['case_id']?>">
@@ -158,7 +158,7 @@ $i=0;
                         <td><?=$row['engineer_name']?></td>
                         <td><?=$row['status']?></td>
                       </tr>
-                    <?
+<?PHP
                     }
                     ?>                      
                     </tbody>

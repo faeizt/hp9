@@ -7,7 +7,7 @@ include 'DB.php'; //DB Connection String
   // $row        =   mysqli_fetch_array( $result );
   $num        =   mysqli_num_rows($result);?>
   
-  <?
+<?php
     while($row = mysqli_fetch_array($result)){?>
       <div class="content" style="margin-bottom:20px">
         <div class="media">

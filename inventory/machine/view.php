@@ -17,7 +17,7 @@ if ($access_control == "true") {
                   <li class="active"><i class="icon-plus"></i> New machine</li>
                 </ol>
               </div>
-      <?
+<?php
       include '../../DB.php'; //DB Connection String
 
       if(isset($_GET['product_id'])){
