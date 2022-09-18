@@ -74,4 +74,5 @@ if(isset($_GET['case_id'])){
                            
                     })                          
                 </script>
-                <?}?>
+                <?php 
+            }?>

@@ -38,7 +38,8 @@ if(isset($_GET['case_id'])){
           </table>                
         </div>          
       </div>
-  <?}
+  <?php 
+  }
   ?>
   <div style="margin-bottom:10px">
     <textarea id="comments"style="width:100%;border: 1px solid #f8f8f8;padding: 7px 8px;" placeholder="Place your comment here..."></textarea>

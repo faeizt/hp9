@@ -45,7 +45,8 @@ if (($row['resolve_time']!="" && $row['resolution']!="" && $row['sts']=="4") || 
       <span class="label label-success"><i class="icon-time"></i> Resolve Time  </span> &nbsp;<?=$row['status_resolve_time']?>
     </div>
   </div>
-<?}
+<?php
+}
   ?>
 
 
@@ -53,7 +54,7 @@ if (($row['resolve_time']!="" && $row['resolution']!="" && $row['sts']=="4") || 
 
     <p><b>Incident Status</b></p>  
 <ul class="bs-status">
-    <?if ($row['open_date']!="") {?>
+    <?php if ($row['open_date']!="") {?>
     <li class="col-xs-6 col-sm-3 " style="background:#F5F5F5"> 
       <div>
         <p style="font-size:15px"><span class="glyphicon glyphicon-fire"></span></p>
@@ -66,7 +67,7 @@ if (($row['resolve_time']!="" && $row['resolution']!="" && $row['sts']=="4") || 
         
     </li>      <?php
     }?>   
-    <?if ($row['assign_time']!="" || $row['sts']=="6") {?>   
+    <?php if ($row['assign_time']!="" || $row['sts']=="6") {?>   
     <li class="col-xs-6 col-sm-3 " style="background:#F5F5F5">
       <div>
       <p style="font-size:15px"><span class="glyphicon glyphicon-tint"></span></p>
@@ -77,7 +78,7 @@ if (($row['resolve_time']!="" && $row['resolution']!="" && $row['sts']=="4") || 
       </div>
     </li>      <?php
     }?>            
-    <?if ($row['onsite_time']!="" || $row['sts']=="1") {?>   
+    <?php if ($row['onsite_time']!="" || $row['sts']=="1") {?>   
     <li class="col-xs-6 col-sm-3 " style="background: #F5F5F5;">
       <div>
       <p style="font-size:15px"><span class="glyphicon glyphicon-cog"></span></p>
@@ -89,7 +90,7 @@ if (($row['resolve_time']!="" && $row['resolution']!="" && $row['sts']=="4") || 
     </li>      <?php
     }?>        
 
-    <?if ($row['pending_time']!="" || $row['sts']=="3") {?>    
+    <?php if ($row['pending_time']!="" || $row['sts']=="3") {?>    
     <li class="col-xs-6 col-sm-3 " style="background: #F5F5F5;">
       <div>
       <p style="font-size:15px"><span class="glyphicon glyphicon-minus-sign"></span></p>
@@ -100,7 +101,7 @@ if (($row['resolve_time']!="" && $row['resolution']!="" && $row['sts']=="4") || 
       </div>
     </li><?php
     }?>             
-    <?if ($row['close_date']!="") {?>
+    <?php if ($row['close_date']!="") {?>
     <li class="col-xs-6 col-sm-3 " style="background:#F5F5F5">
       <div>
       <p style="font-size:15px"><span class="glyphicon glyphicon-ok-sign"></span></p>
@@ -114,4 +115,5 @@ if (($row['resolve_time']!="" && $row['resolution']!="" && $row['sts']=="4") || 
     </ul>
   </div>        
 
-<?}?>
+<?php
+}?>
