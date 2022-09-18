@@ -29,7 +29,7 @@ include 'DB.php'; //DB Connection String
         </div>          
       </div>
   <hr>
-      <?}
+      <?php}
   ?>      
 
   </div>
