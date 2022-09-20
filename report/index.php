@@ -1,4 +1,4 @@
-<?
+<?php
 $date = date("Y-m-d");
 $first_day_this_month = date('Y-m-01'); // hard-coded '01' for first day
 $last_day_this_month  = date('Y-m-t');
@@ -8,7 +8,7 @@ $last_day  = date('F t, Y');
 ?>
 <input type="hidden" id="today" value="<?=$date?>">
 
-<?
+<?php
 session_start();
 $_SESSION['nav_level'] = "1";
 $_SESSION['nav_title'] = "report";
@@ -119,7 +119,7 @@ $project = substr($project,0,-1);
         <button id="btn_regen" class="pull-right btn btn-primary" style="margin-right:28px"><i class="fa fa-cog"></i> Regenerate Report</button>
             <div class="panel-body" style="clear:both">
           <!-- statistics chart built with jQuery Flot -->
-          <div class="row chart">
+          <div class="row chart" style="border: 1px solid #ccc;background-color: #fff;border-radius: 5px;opacity: 90%;">
               <div class="col-md-12">
               </div>
               <div class="col-md-12">
@@ -132,7 +132,7 @@ $project = substr($project,0,-1);
       </div>
       <div class="row">
         <div class="col-lg-12">   
-          <div class="table-responsive" id="div_app_list">        </div>
+        <div class="table-responsive" id="div_app_list" style="">        </div>
         </div>
       </div><!-- /.row -->
     </div><!-- /#page-wrapper -->
@@ -728,7 +728,7 @@ $('#reportrange').daterangepicker(
         });
 </script>
 
-<?
+<?php
 }else{
 include ("../nav/access_denied.php");
 }
