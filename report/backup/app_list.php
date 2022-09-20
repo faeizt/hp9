@@ -1,4 +1,4 @@
-<?php
+<?
 session_start();
 if (!isset($_SESSION['username'])){
       header( 'Location: index.html' ) ;
@@ -6,10 +6,10 @@ if (!isset($_SESSION['username'])){
 include '../DB.php';
 
 $access_query     =   "SELECT * FROM sys_user_ac WHERE user_id = ".$_SESSION['user_id'] ;      // echo $sqlquery;
-$result           =   mysqli_query($con,$access_query) or die("sql= ". $access_query);          //query
+$result           =   mysql_query($access_query) or die("sql= ". $access_query);          //query
 $result_array = array();
 
-while($row = mysqli_fetch_array($result)){
+while($row = mysql_fetch_array($result)){
 $result_array[] = $row;
 }
 
@@ -87,13 +87,13 @@ if ($project != "") {
 // echo "sql = " .$sqlquery;
 
 
-$result =   mysqli_query($con,$sqlquery) or die("sql = ". $sqlquery);          //query
+$result =   mysql_query($sqlquery) or die("sql = ". $sqlquery);          //query
 
-$total_pages = mysqli_fetch_array(mysqli_query($con,$query));
+$total_pages = mysql_fetch_array(mysql_query($query));
 $total_pages = $total_pages['num'];
 
 
-$num    =   mysqli_num_rows($result);
+$num    =   mysql_numrows($result);
 $maxpage= ceil($total_pages/$limit);        
 
 $i=0;
@@ -131,11 +131,11 @@ $i=0;
                           </tr> -->
                   <table id="tbl_application" class="table table-hover  tablesorter">
                     <tbody>
-<?PHP
-                    while($row = mysqli_fetch_array($result)){
+                    <?
+                    while($row = mysql_fetch_array($result)){
                         $i++;?>
                           <tr style="border-bottom:1px solid #ddd" data="<?=$row['case_id']?>">
-                            <td style="width:50px"><a class="pull-left" href="#"><img data-src="holder.js/70x70/text:<?php echo((($page-1) * 10 ) + $i);?>" style="border:5px solid #ddd" class="img-circle"></a></td>
+                            <td style="width:50px"><a class="pull-left" href="#"><img data-src="holder.js/70x70/text:<?echo((($page-1) * 10 ) + $i);?>" style="border:5px solid #ddd" class="img-circle"></a></td>
                             <td style="padding:15px">          
                             <div style="margin-right: 100px;">
                               <strong><?=$row['problem']?></strong>
@@ -144,7 +144,7 @@ $i=0;
                             <p><span>Customer: <?=$row['client_code']?></span> <span>Status: <?=$row['status']?></span> </p>
                             </td>
                           </tr>
-<?PHP
+                    <?
                     }
                     ?>                      
 

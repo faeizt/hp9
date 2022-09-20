@@ -10,7 +10,7 @@ $result           =   mysqli_query($con,$access_query) or die("sql= ". $access_q
 $result_array = array();
 
 while($row = mysqli_fetch_array($result)){
-  $result_array[] = $row;
+$result_array[] = $row;
 }
 
 $project="";
@@ -41,7 +41,7 @@ if ($project != "") {
 }
    $fltrsql = "";
    if(isset($_POST['fltr']) && ($_POST['fltr'] !="")){
-    $fltrsql    = htmlspecialchars(urldecode($_POST['fltr']));
+    $fltrsql    = " and ".htmlspecialchars(urldecode($_POST['fltr']));
     $fltrsql    = str_replace("^", "%", $fltrsql);    
     $fltrsql    = str_replace("\\", "", $fltrsql);
 
@@ -51,11 +51,11 @@ if ($project != "") {
     $begin      = htmlspecialchars(urldecode($_POST['begin']));
     $end        = htmlspecialchars(urldecode($_POST['end']));
     if ($fltrsql =="") {
-        $fltrsql = " and ". $fltrsql;      
+        $fltrsql = " where ". $fltrsql;      
     }
     else{
       if ($project =="") {
-        $fltrsql = " and ". $fltrsql;
+        $fltrsql = " where ". $fltrsql;
       }else{
         $fltrsql = " and ". $fltrsql;
       }
@@ -131,7 +131,7 @@ $i=0;
                           </tr> -->
                   <table id="tbl_application" class="table table-hover  tablesorter">
                     <tbody>
-                    <?PHP
+<?PHP
                     while($row = mysqli_fetch_array($result)){
                         $i++;?>
                           <tr style="border-bottom:1px solid #ddd" data="<?=$row['case_id']?>">
@@ -144,7 +144,7 @@ $i=0;
                             <p><span>Customer: <?=$row['client_code']?></span> <span>Status: <?=$row['status']?></span> </p>
                             </td>
                           </tr>
-                          <?PHP
+<?PHP
                     }
                     ?>                      
 

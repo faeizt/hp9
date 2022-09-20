@@ -5,45 +5,21 @@ if (!isset($_SESSION['username'])){
 }
 include '../DB.php';
 
-$access_query     =   "SELECT * FROM sys_user_ac WHERE user_id = ".$_SESSION['user_id'] ;      // echo $sqlquery;
-$result           =   mysqli_query($con,$access_query) or die("sql= ". $access_query);          //query
-$result_array = array();
-
-while($row = mysqli_fetch_array($result)){
-  $result_array[] = $row;
-}
-
-$project="";
-$PAC  = 0;
-
-foreach ($result_array as $results) {
-  $PAC = $results['access'];
-  if ($PAC & 8192) {
-    $project = $project. "'" .$results['project_code'] . "',";
-  }
-}
-$project = substr($project,0,-1);
-
 $page = 0;
 $limit = 10;
 $proj_list = str_REPLACE(',','\',\'',$_SESSION['project']);
-
 if(isset($_POST['page'])){
   $page = $_POST['page'];
   $start = ($page - 1) * $limit; 
 }else{    $start = 0;     }
 
 if ($page == 0) $page = 1;
-if ($project != "") {
-  $sqlquery = "SELECT * FROM v_incident WHERE project_code in (".$project.") ";  
-}else{
-  $sqlquery = "SELECT * FROM v_incident  ";  
-}
+
+  $sqlquery = "SELECT * FROM v_incident ";
    $fltrsql = "";
    if(isset($_POST['fltr']) && ($_POST['fltr'] !="")){
-    $fltrsql    = htmlspecialchars(urldecode($_POST['fltr']));
+    $fltrsql    = " where ".htmlspecialchars(urldecode($_POST['fltr']));
     $fltrsql    = str_replace("^", "%", $fltrsql);    
-    $fltrsql    = str_replace("\\", "", $fltrsql);
 
    }
   if(isset($_POST['begin']) && ($_POST['begin'] !="")){
@@ -51,14 +27,9 @@ if ($project != "") {
     $begin      = htmlspecialchars(urldecode($_POST['begin']));
     $end        = htmlspecialchars(urldecode($_POST['end']));
     if ($fltrsql =="") {
-        $fltrsql = " and ". $fltrsql;      
+      $fltrsql = $fltrsql . " WHERE ";
     }
     else{
-      if ($project =="") {
-        $fltrsql = " and ". $fltrsql;
-      }else{
-        $fltrsql = " and ". $fltrsql;
-      }
       $fltrsql = $fltrsql . " AND ";
     }
     $fltrsql    = $fltrsql . " $date_type BETWEEN (STR_TO_DATE('$begin', '%Y-%m-%d')) AND DATE_ADD((STR_TO_DATE('$end', '%Y-%m-%d')), INTERVAL 1 DAY) ";
@@ -81,10 +52,10 @@ if ($project != "") {
    $srtsql = $srtsql .$srt."  LIMIT $start, $limit ";
    $sqlquery = $sqlquery.$fltrsql.$srchsql.$srtsql;
 
-   $query = "SELECT COUNT(*) as num FROM v_incident WHERE project_code in (".$project.") ";
+   $query = "SELECT COUNT(*) as num FROM v_incident";
    $query = $query .$fltrsql.$srchsql;
 
-// echo "sql = " .$sqlquery;
+echo "sql = " .$sqlquery;
 
 
 $result =   mysqli_query($con,$sqlquery) or die("sql = ". $sqlquery);          //query
@@ -108,8 +79,8 @@ $i=0;
                 <i class="fa fa-cog"></i>
               </button>
               <ul class="dropdown-menu">
-                <li id="compact_view_top"><a href="#">Compact View</a></li>
-                <li id="details_view_top"><a href="#">Details View</a></li>
+                <li><a href="#">Compact View</a></li>
+                <li><a href="#">Details View</a></li>
               </ul>
             </div>
             <button id="first-top" class="btn  btn-small btn-default"><i class="icon-step-backward"></i> </button>
@@ -128,10 +99,10 @@ $i=0;
                             <p>That means that any event handlers bound to the elements during page load will not be applicable to the loaded data unless the event is delegated to a static parent element -- meaning that the element is never removed or replaced, and will exist indefinitely.</p>
                             <p><span>Customer: UTM</span> <span>Status: Closed</span> </p>
                             </td>
-                          </tr> -->
+                          </tr> -->          
                   <table id="tbl_application" class="table table-hover  tablesorter">
                     <tbody>
-                    <?PHP
+<?PHP
                     while($row = mysqli_fetch_array($result)){
                         $i++;?>
                           <tr style="border-bottom:1px solid #ddd" data="<?=$row['case_id']?>">
@@ -144,7 +115,7 @@ $i=0;
                             <p><span>Customer: <?=$row['client_code']?></span> <span>Status: <?=$row['status']?></span> </p>
                             </td>
                           </tr>
-                          <?PHP
+<?PHP
                     }
                     ?>                      
 
@@ -160,8 +131,8 @@ $i=0;
                 <i class="fa fa-cog"></i>
               </button>
               <ul class="dropdown-menu">
-                <li id="compact_view_btm"><a href="#">Compact View</a></li>
-                <li id="details_view_btm"><a href="#">Details View</a></li>
+                <li><a href="#">Compact View</a></li>
+                <li><a href="#">Details View</a></li>
               </ul>
             </div>
             <button id="first-btm" class="btn  btn-small btn-default"><i class="icon-step-backward"></i> </button>
@@ -302,64 +273,6 @@ $i=0;
       }); 
 
   })
-
-  $('#compact_view_top').click(function(){
-      $.ajax({
-        async: "false",
-        type: "POST",
-        url: "app_list_compact.php",
-        data: ({
-            type       : $('#report_type').val()  ,
-            fltr       : $('#fltr').val()  ,
-            date_type  : $('#report_date').val()  ,
-            begin      : $('#begin_date').val()  ,
-            end        : $('#end_date').val(),
-            page       : 1  
-            }) ,
-
-        success: function(data){
-          if(data!=""){ 
-            $('#div_app_list').html(data);
-
-          }
-
-          else{//true
-                valid = false;
-                alert('fail')
-          }
-        } 
-      }); 
-  })
-
-  $('#compact_view_btm').click(function(){
-      $.ajax({
-        async: "false",
-        type: "POST",
-        url: "app_list_compact.php",
-        data: ({
-            type       : $('#report_type').val()  ,
-            fltr       : $('#fltr').val()  ,
-            date_type  : $('#report_date').val()  ,
-            begin      : $('#begin_date').val()  ,
-            end        : $('#end_date').val(),
-            page       : 1  
-            }) ,
-
-        success: function(data){
-          if(data!=""){ 
-            $('#div_app_list').html(data);
-
-          }
-
-          else{//true
-                valid = false;
-                alert('fail')
-          }
-        } 
-      }); 
-  })
-
-  
 function print_rpt(result){
     var printContents =           $("#mydiv").clone();
       $("#mydiv").html("");    

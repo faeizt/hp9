@@ -64,7 +64,7 @@ if ($project != "") {
       $fltrsql = $fltrsql . " AND ";
     }
     $fltrsql    = $fltrsql . " $date_type BETWEEN (STR_TO_DATE('$begin', '%Y-%m-%d')) AND DATE_ADD((STR_TO_DATE('$end', '%Y-%m-%d')), INTERVAL 1 DAY) ";
-//echo $fltrsql;
+
     }
    $srchsql = " ";
    if(isset($_GET['srch'])){
@@ -89,13 +89,13 @@ if ($project != "") {
  //echo "sql = " .$sqlquery;
 
 
-$result =   mysqli_query($con,$sqlquery) or die("sql = ". $sqlquery);          //query
-$result2 =   mysqli_query($con,$query) or die("sql = ". $query);          //query
-$total_pages = mysqli_fetch_array($result2);
-$total_pages = $total_pages['num'];
-
-
-$num    =   mysqli_num_rows($result);
+ $result =   mysqli_query($con,$sqlquery) or die("sql = ". $sqlquery);          //query
+ $result2 =   mysqli_query($con,$query) or die("sql = ". $query);          //query
+ $total_pages = mysqli_fetch_array($result2);
+ $total_pages = $total_pages['num'];
+ 
+ 
+ $num    =   mysqli_num_rows($result);
 $maxpage= ceil($total_pages/$limit);        
 
 $i=0;
@@ -134,7 +134,7 @@ $i=0;
                   <table id="tbl_application" class="table table-hover  tablesorter">
                     <thead>
                       <tr>
-                        <th style="width: 50px;">No </th>
+                      <th style="width: 50px;">No </th>
                         <th>Incident ID </th>
                         <th>Problem</th>
                         <th>Reported On </th>
@@ -160,7 +160,7 @@ $i=0;
                       </tr>
 <?PHP
                     }
-                    ?>                      
+                    ?>            
                     </tbody>
                   </table>
           <blockquote>

@@ -7,10 +7,11 @@ include '../DB.php';
 
 $access_query     =   "SELECT * FROM sys_user_ac WHERE user_id = ".$_SESSION['user_id'] ;      // echo $sqlquery;
 $result           =   mysqli_query($con,$access_query) or die("sql= ". $access_query);          //query
+
 $result_array = array();
 
 while($row = mysqli_fetch_array($result)){
-  $result_array[] = $row;
+$result_array[] = $row;
 }
 
 $project="";
@@ -27,7 +28,6 @@ $project = substr($project,0,-1);
 $page = 0;
 $limit = 10;
 $proj_list = str_REPLACE(',','\',\'',$_SESSION['project']);
-
 if(isset($_POST['page'])){
   $page = $_POST['page'];
   $start = ($page - 1) * $limit; 
@@ -45,24 +45,26 @@ if ($project != "") {
     $fltrsql    = str_replace("^", "%", $fltrsql);    
     $fltrsql    = str_replace("\\", "", $fltrsql);
 
+
    }
   if(isset($_POST['begin']) && ($_POST['begin'] !="")){
     $date_type  = htmlspecialchars(urldecode($_POST['date_type']));
     $begin      = htmlspecialchars(urldecode($_POST['begin']));
     $end        = htmlspecialchars(urldecode($_POST['end']));
     if ($fltrsql =="") {
-        $fltrsql = " and ". $fltrsql;      
+        $fltrsql = " and ". $fltrsql;
+      
     }
     else{
       if ($project =="") {
-        $fltrsql = " and ". $fltrsql;
+        $fltrsql = " where ". $fltrsql;
       }else{
         $fltrsql = " and ". $fltrsql;
       }
       $fltrsql = $fltrsql . " AND ";
     }
     $fltrsql    = $fltrsql . " $date_type BETWEEN (STR_TO_DATE('$begin', '%Y-%m-%d')) AND DATE_ADD((STR_TO_DATE('$end', '%Y-%m-%d')), INTERVAL 1 DAY) ";
-
+//echo $fltrsql;
     }
    $srchsql = " ";
    if(isset($_GET['srch'])){
@@ -84,12 +86,12 @@ if ($project != "") {
    $query = "SELECT COUNT(*) as num FROM v_incident WHERE project_code in (".$project.") ";
    $query = $query .$fltrsql.$srchsql;
 
-// echo "sql = " .$sqlquery;
+ //echo "sql = " .$sqlquery;
 
 
 $result =   mysqli_query($con,$sqlquery) or die("sql = ". $sqlquery);          //query
-
-$total_pages = mysqli_fetch_array(mysqli_query($con,$query));
+$result2 =   mysqli_query($con,$query) or die("sql = ". $query);          //query
+$total_pages = mysqli_fetch_array($result2);
 $total_pages = $total_pages['num'];
 
 
@@ -130,24 +132,35 @@ $i=0;
                             </td>
                           </tr> -->
                   <table id="tbl_application" class="table table-hover  tablesorter">
+                    <thead>
+                      <tr>
+                        <th style="width: 50px;">No </th>
+                        <th>Incident ID </th>
+                        <th>Problem</th>
+                        <th>Reported On </th>
+                        <th>Reporter </th>
+                        <th>Customer </th>
+                        <th>Engineer</th>
+                        <th>Status </th>
+                      </tr>
+                     </thead>
                     <tbody>
-                    <?PHP
+<?PHP
                     while($row = mysqli_fetch_array($result)){
                         $i++;?>
-                          <tr style="border-bottom:1px solid #ddd" data="<?=$row['case_id']?>">
-                            <td style="width:50px"><a class="pull-left" href="#"><img data-src="holder.js/70x70/text:<?php echo((($page-1) * 10 ) + $i);?>" style="border:5px solid #ddd" class="img-circle"></a></td>
-                            <td style="padding:15px">          
-                            <div style="margin-right: 100px;">
-                              <strong><?=$row['problem']?></strong>
-                              <p><span>Logged on: <?=$row['open_date']?></span> <span>Logged by: <?=$row['open_by']?></span> </p>
-                            </div> 
-                            <p><span>Customer: <?=$row['client_code']?></span> <span>Status: <?=$row['status']?></span> </p>
-                            </td>
-                          </tr>
-                          <?PHP
+                      <tr style="border-bottom:1px solid #ddd" data="<?=$row['case_id']?>">
+                        <td><?php echo((($page-1) * 10 ) + $i);?></td>
+                        <td><?=$row['case_id']?></td>
+                        <td><?=$row['title']?></td>
+                        <td><?=$row['open_date']?></td>
+                        <td><?=$row['open_by']?></td>
+                        <td><?=$row['client_code']?></td>
+                        <td><?=$row['engineer_name']?></td>
+                        <td><?=$row['status']?></td>
+                      </tr>
+<?PHP
                     }
                     ?>                      
-
                     </tbody>
                   </table>
           <blockquote>
@@ -183,7 +196,7 @@ $i=0;
       $.ajax({
         async: "false",
         type: "POST",
-        url: "app_list.php",
+        url: "app_list_compact.php",
         data: ({
             type       : $('#report_type').val()  ,
             fltr       : $('#fltr').val()  ,
@@ -303,11 +316,11 @@ $i=0;
 
   })
 
-  $('#compact_view_top').click(function(){
+  $('#details_view_top').click(function(){
       $.ajax({
         async: "false",
         type: "POST",
-        url: "app_list_compact.php",
+        url: "app_list.php",
         data: ({
             type       : $('#report_type').val()  ,
             fltr       : $('#fltr').val()  ,
@@ -328,14 +341,13 @@ $i=0;
                 alert('fail')
           }
         } 
-      }); 
-  })
+      });   })
 
-  $('#compact_view_btm').click(function(){
+  $('#details_view_btm').click(function(){
       $.ajax({
         async: "false",
         type: "POST",
-        url: "app_list_compact.php",
+        url: "app_list.php",
         data: ({
             type       : $('#report_type').val()  ,
             fltr       : $('#fltr').val()  ,
@@ -356,9 +368,7 @@ $i=0;
                 alert('fail')
           }
         } 
-      }); 
-  })
-
+      });   })
   
 function print_rpt(result){
     var printContents =           $("#mydiv").clone();

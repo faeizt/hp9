@@ -44,6 +44,7 @@ $begin_date 		= strtotime($begin);
 $end_date 			= strtotime($end);
 $datediff			= $end_date - $begin_date;
 $days 				= $datediff/(60*60*24);
+//echo $days;
 
 if ($days < 32) { //daily report
 	$open = "CREATE TEMPORARY TABLE daily AS SELECT @n := @n + 1 n,dayNumberOfMonth days FROM dates,(SELECT @n := 0) m  WHERE date_key BETWEEN (STR_TO_DATE('$begin', '%Y-%m-%d')) AND  DATE_ADD((STR_TO_DATE('$end', '%Y-%m-%d')), INTERVAL 0 DAY)";
@@ -52,16 +53,23 @@ if ($days < 32) { //daily report
 		$v = array();
 		$x = array();
 		$h['label']= $report;
-		$result = "SELECT n,days Y,IFNULL(COUNT($date),0) R FROM daily LEFT JOIN v_incident ON ".$project_list." and DAY($date) = days ".$sql." AND $date BETWEEN (STR_TO_DATE('$begin', '%Y-%m-%d')) AND DATE_ADD((STR_TO_DATE('$end', '%Y-%m-%d')), INTERVAL 1 DAY) GROUP BY days  order by n";
+//		$result = "SELECT n,days Y,IFNULL(COUNT($date),0) R FROM daily LEFT JOIN v_incident ON ".$project_list." and DAY($date) = days ".$sql." AND $date BETWEEN (STR_TO_DATE('$begin', '%Y-%m-%d')) AND DATE_ADD((STR_TO_DATE('$end', '%Y-%m-%d')), INTERVAL 1 DAY) GROUP BY days  order by n";
+        $result = "
+		SELECT week(open_date) as n, count(*) as R FROM thehelpdesk.v_incident
+		where  open_date BETWEEN (STR_TO_DATE('$begin', '%Y-%m-%d')) AND (STR_TO_DATE('$end', '%Y-%m-%d'))
+		and $project_list
+		group by n
+		order by n asc;
+		";
 // echo $result;
-$q = mysqli_query($con,$result);
-$i=0;
-while($r = mysqli_fetch_array($q)) {
+		$q = mysql_query($result);
+		$i=0;
+		while($r = mysqli_fetch_array($q)) {
 			$i++;
 			$tmp[0] = $r['n'];
 			$tmp[1] = $r['R'];
 			$axis[0] = $r['n'];
-			$axis[1] 	= $r['Y'];
+			$axis[1] 	= $r['n'];
 
 			array_push($v, $tmp);
 			array_push($x, $axis);	
@@ -113,21 +121,45 @@ else if ($days > 64 && $days< 366) { //weekly report
 		$v = array();
 		$x = array();
 		$h['label']='Incident';
-		$result = "SELECT  n,month,MONTHNAME(STR_TO_DATE(month, '%m')) Y,IFNULL(COUNT($date),0) R FROM monthly LEFT JOIN v_incident ON ".$project_list." and MONTH($date) = MONTH ".$sql."  AND $date BETWEEN (STR_TO_DATE('$begin', '%Y-%m-%d')) AND DATE_ADD((STR_TO_DATE('$end', '%Y-%m-%d')), INTERVAL 1 DAY) GROUP BY MONTH order by n";
-		// echo $result;
+		$result = "
+		select all_months.month_num mm,
+		CASE
+			WHEN month_num = 1 THEN 'Jan'
+			WHEN month_num = 2 THEN 'Feb'
+			WHEN month_num = 3 THEN 'Mar'
+			WHEN month_num = 4 THEN 'Apr'
+			WHEN month_num = 5 THEN 'May'
+			WHEN month_num = 6 THEN 'Jun'
+			WHEN month_num = 7 THEN 'Jul'
+			WHEN month_num = 8 THEN 'Aug'
+			WHEN month_num = 9 THEN 'Sep'
+			WHEN month_num = 10 THEN 'Oct'
+			WHEN month_num = 11 THEN 'Nov'
+			WHEN month_num = 12 THEN 'Dec'
+		END as MON,
+		ifnull(R,0) as R
+		from
+		(SELECT count(*) R,month(open_date) mm,
+		project_code
+		FROM  v_incident 
+		where  open_date BETWEEN (STR_TO_DATE('$begin', '%Y-%m-%d')) AND (STR_TO_DATE('$end', '%Y-%m-%d')) 
+		and $project_list
+		group by mm
+		) as tmp
+		RIGHT JOIN all_months on all_months.month_num=tmp.mm
+		ORDER BY all_months.month_num ASC";
+		//echo $result;
 		$q = mysqli_query($con,$result);
 		$i=0;
 		while($r = mysqli_fetch_array($q)) {
 			$i++;
-			$tmp[0] = $r['n'];
+			$tmp[0] = $r['mm'];
 			$tmp[1] = $r['R'];
-
-			$axis[0] = $tmp[0];
-			$axis[1] 	= $r['Y'];
+			$axis[0] = $r['mm'];
+			$axis[1] 	= $r['MON'];
 
 			array_push($v, $tmp);
 			array_push($x, $axis);	
-			
 		}
 		$h['data']=$v;
 		$h['xaxis']=$x;
