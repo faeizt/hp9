@@ -76,6 +76,10 @@ $i=0;
                         <th>Contact Person <i class="fa fa-sort"></i></th>
                         <th>Contact Number <i class="fa fa-sort"></i></th>
                         <th>Problem Title <i class="fa fa-sort"></i></th>
+                        <th>Model <i class="fa fa-sort"></i></th>
+                        <th>Assign To <i class="fa fa-sort"></i></th>
+                        <th>Status <i class="fa fa-sort"></i></th>
+                        <th>Created <i class="fa fa-sort"></i></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -87,8 +91,10 @@ $i=0;
                         <td><?=$row['caller']?></td>
                         <td><?=$row['contact']?></td>
                         <td><?=$row['title']?></td>
-
-
+                        <td><?=$row['model']?></td>
+                        <td><?=$row['engineer']?></td>
+                        <td><?=$row['status']?></td>
+                        <td><?=$row['opentime']?></td>
                         </tr><?php
                     }
                     ?>                      

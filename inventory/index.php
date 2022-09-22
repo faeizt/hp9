@@ -20,7 +20,7 @@ if ($access_control == "true") {
         <div id="myScrollspy" class="collapse navbar-collapse  submenu-colls">
           <ul class="nav navbar-nav-thin navbar-nav-leftborder-light vert-menu-border">
             <li><a href="machine"><span class="glyphicon glyphicon-file"></span> Machine Type</a></li>
-            <li><a href="new.php"><span class="glyphicon glyphicon-plus"></span> Add Product List</a></li>
+            <li><a href="new.php"><span class="glyphicon glyphicon-plus"></span> Add Inventory</a></li>
           </ul>          
         </div><!--/.nav-collapse -->
       </nav><!--/.navbar-default -->
@@ -41,7 +41,7 @@ if ($access_control == "true") {
           <div class="col-lg-12">
             <div class="page-title">
               <ol class="breadcrumb_date">
-                <li class="active"><i class="fa fa-dashboard"></i> Product List</li>
+                <li class="active"><i class="fa fa-dashboard"></i> Inventory</li>
                 <li class="pull-right" style="margin-top: 0px;">
                   <div id="inventory_filter" class="btn btn-success pull-right date-picker">
                       <i class="fa fa-filter fa-sm"></i>

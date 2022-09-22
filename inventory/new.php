@@ -18,10 +18,10 @@ if(isset($_GET['case_id'])){
 ?>
       <div id="page-wrapper" >
           <div class="col-lg-12">
-            <h1>Product List <small>Track all Inventories</small></h1>
+            <h1>Inventory List <small>Track all Inventories</small></h1>
             <ol class="breadcrumb">
-              <li ><a href="index.php"><i class="fa fa-inbox"></i> Product List</a></li>
-              <li class="active"><i class="icon-plus"></i> Add Product List</li>
+              <li ><a href="index.php"><i class="fa fa-inbox"></i> Inventory </a></li>
+              <li class="active"><i class="icon-plus"></i> Add Inventory List</li>
             </ol>
 
           </div>
@@ -136,14 +136,14 @@ if(isset($_GET['case_id'])){
 
             success: function(data){
               if(data=="SAVED"){ 
-                alert('New product successfully added.')
+                alert('New inventory successfully added.')
                 window.location.replace("index.php");
 
               }
 
               else{//true
                     valid = false;
-                    alert('Unable to add product.')
+                    alert('Unable to add inventory.')
               }
             } 
           }); 

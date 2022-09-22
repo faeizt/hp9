@@ -40,8 +40,7 @@ if ($access_control == "true") {
           <div class="col-lg-12">
             <div class="page-title">
               <ol class="breadcrumb_date">
-                <li ><a href="../../inventory"><i class="fa fa-inbox"></i> Product List</a></li>
-                <li class=""> &nbsp;&nbsp;/ &nbsp;&nbsp;<i class="fa fa-fw fa-cog "></i> Machine</li>
+                <li class=""> &nbsp;&nbsp;<i class="fa fa-fw fa-cog "></i> Machine</li>
                 <li class="pull-right" style="margin-top: 0px;">
                   <div id="inventory_filter" class="btn btn-success pull-right date-picker">
                       <i class="fa fa-filter fa-sm"></i>

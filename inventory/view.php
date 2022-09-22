@@ -8,10 +8,10 @@ if ($access_control == "true") {
 ?>
      <div id="page-wrapper" >
           <div class="col-lg-12">
-            <h1>Product List <small>Track all Products</small></h1>
+            <h1>Inventory List <small>Track all Products</small></h1>
             <ol class="breadcrumb">
-              <li ><a href="../index.php"><i class="fa fa-inbox"></i> Product List</a></li>
-              <li class="active"><i class="icon-file"></i> View Product</li>
+              <li ><a href="../index.php"><i class="fa fa-inbox"></i> Inventory List</a></li>
+              <li class="active"><i class="icon-file"></i> View Inventory</li>
             </ol>
           </div>
 <?php

@@ -141,7 +141,7 @@ $user_access3     =   intval($row['access3']);
             <li<?php if ($nav_title == "calendar"){?> class="active"<?php  } ?>><a href="<?=$nav_control?>calendar"><span><i class="fa fa-calendar"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALENDAR</span></a></li>
             <?php  }else{}
             if (($user_access & 16) == 16) {?>
-            <li<?php if ($nav_title == "inventory"){?> class="active"<?php  } ?>><a href="<?=$nav_control?>inventory"><span><i class="fa fa-dropbox"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT LIST</span></a></li>
+            <li<?php if ($nav_title == "inventory"){?> class="active"<?php  } ?>><a href="<?=$nav_control?>inventory"><span><i class="fa fa-dropbox"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INVENTORY</span></a></li>
             <?php  }else{}
             if (($user_access & 32) == 32) {?>
             <li<?php if ($nav_title == "config"){?> class="active"<?php  } ?>><a href="<?=$nav_control?>config"><span><i class="fa fa-cogs"></i></span> <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SETTING</span></a></li>
