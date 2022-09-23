@@ -98,7 +98,7 @@ $user_access3     =   intval($row['access3']);
 
   <body  data-spy="scroll" data-offset="0" data-target="#myScrollspy">
 
-    <div id="wrapper" style="">
+    <div id="wrapper">
 
       <!-- Sidebar -->
       <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
