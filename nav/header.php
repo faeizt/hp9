@@ -221,8 +221,7 @@ $access_control3  =   $row['access_control3'];
 
 //echo '<br/>'.$access_query.'|'.$access_control;
 
-// if ($access_control == "true")echo '<br/>Access Granted';
-// else echo '<br/>Access Restricted';
+
 
 $access_query     =   "SELECT * FROM sys_user_ac WHERE user_id = ".$_SESSION['user_id'] ;      // echo $sqlquery;
 $result           =   mysqli_query($con, $access_query) or die("sql= ". $access_query);          //query
@@ -233,6 +232,35 @@ $result_array[] = $row_ac;
 }
 // var_dump($result_array);
 // echo $access_query;
+
+if ($access_control == "true"){
+$project      ="";
+$project_code ="";
+
+foreach ($result_array as $results) {
+    $project      = $project .$results['project_code'] . ",";
+    $project_code = $project_code ."'".$results['project_code'] . "',";
+
+}
+$project = substr($project,0,-1);
+$project_code = substr($project_code,0,-1);
+
+date_default_timezone_set('Asia/Kuala_Lumpur');
+$first_day_this_month = date('Y-01-01'); // hard-coded '01' for first day
+$last_day_this_month  = date('Y-12-t');
+
+$date = date("Y-m-d");
+$year = date("Y");
+?>
+<input type="hidden" id="project_list" value="<?=$project?>">
+<input type="hidden" id="project_code_list" value="<?=$project_code?>">
+<input type="hidden" id="begin_date" value="<?=$first_day_this_month?>">
+<input type="hidden" id="end_date" value="<?=$last_day_this_month?>">
+<input type="hidden" id="begin" value="<?=$date?>">
+<input type="hidden" id="end" value="<?=$date?>">
+<input type="hidden" id="today" value="<?$date?>">
+<?php
+}
 ?>
 
 <script type="text/javascript">

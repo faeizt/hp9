@@ -1,55 +1,28 @@
 <?php
-
-date_default_timezone_set('Asia/Kuala_Lumpur');
-$first_day_this_month = date('Y-01-01'); // hard-coded '01' for first day
-$last_day_this_month  = date('Y-12-t');
-
-$date = date("Y-m-d");
-$year = date("Y");
-?>
-<input type="hidden" id="today" value="<?$date?>">
-
-<?php
 session_start();
 $_SESSION['nav_level'] = "0";
 $_SESSION['nav_title'] = "dashboard";
 
 include ("nav/header.php");
-if ($access_control == "true") {
-// echo "string = " . $_SESSION['usertype'];
+if ($access_control == "true") {?>
 
-//if ($access_control == "true"){
-$project      ="";
-$project_code ="";
-
-foreach ($result_array as $results) {
-    $project      = $project .$results['project_code'] . ",";
-    $project_code = $project_code ."'".$results['project_code'] . "',";
-
-}
-$project = substr($project,0,-1);
-$project_code = substr($project_code,0,-1);
-?>
-<input type="hidden" id="project_list" value="<?=$project?>">
-<input type="hidden" id="project_code_list" value="<?=$project_code?>">
-<input type="hidden" id="begin_date" value="<?=$first_day_this_month?>">
-<input type="hidden" id="end_date" value="<?=$last_day_this_month?>">
-<input type="hidden" id="begin" value="<?=$date?>">
-<input type="hidden" id="end" value="<?=$date?>">
-
-
+<style type="text/css">
+  #statsChart {
+  height: 300px;
+  margin-top: 0px;
+  margin-bottom:   20px;
+  }
+</style>
       <div id="page-wrapper" class="panel-body">
         <div class="row">
           <div class="col-lg-12">
             <div class="page-title">
               <ol class="breadcrumb_date">
                 <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
-                <!-- <li class="pull-right" style="margin-top: 0px;">
-                  <div id="reportrange" class="btn btn-success pull-right date-picker">
+                <li class="pull-right" style="margin-top: 0px;">
                       <i class="fa fa-calendar fa-lg"></i>
-                      <span><?php echo date("F j, Y"); ?></span> <b class="caret"></b>
-                  </div>
-                </li> -->
+                      <span><?php echo date("F j, Y"); ?></span> 
+                </li>
               </ol>
      
             </div>
@@ -58,15 +31,7 @@ $project_code = substr($project_code,0,-1);
 
         <div class="row">
           <div class="col-lg-12">
-
-              <div class="panel-body">
-              <style type="text/css">
-                #statsChart {
-                height: 300px;
-                margin-top: 0px;
-                margin-bottom:   20px;
-                }
-              </style>
+            <div class="panel-body">
             <!-- statistics chart built with jQuery Flot -->
             <div class="row chart" style="border: 1px solid #ccc;background-color: #fff;border-radius: 5px;opacity: 90%;">
                 <div class="col-md-12">
@@ -78,16 +43,14 @@ $project_code = substr($project_code,0,-1);
                     <div id="statsChart"></div>
                 </div>
             </div>
-
             <!-- end statistics chart -->
             </div>
           </div>
         </div><!-- /.row -->
-            <div class="alert alert-info">
-              <font style="font-size:18px"><i class="fa fa-info-circle "></i> </font>
+        <div class="alert alert-info">
+            <font style="font-size:18px"><i class="fa fa-info-circle "></i> </font>
               Detail report generation can be done in <strong><a href="report/">Report</a></strong> section.
-            </div>            
-
+        </div>            
         <div class="row">
           <div class="col-lg-3">
             <div class="panel panel-info">
@@ -101,18 +64,6 @@ $project_code = substr($project_code,0,-1);
 
                 </div>
               </div>
-              <a href="javascript:viewIncident('1');">
-                <div class="panel-footer announcement-bottom">
-                  <div class="row">
-                    <div class="col-xs-6">
-                      View Incident
-                    </div>
-                    <div class="col-xs-6 text-right">
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </div>
-                  </div>
-                </div>
-              </a>
             </div>
           </div>
           <div class="col-lg-3">
@@ -126,18 +77,6 @@ $project_code = substr($project_code,0,-1);
                   <div class="col-xs-12 text-right"><p class="announcement-text">Waiting for support</p></div>
                 </div>
               </div>
-              <a href="javascript:viewIncident('0');">
-                <div class="panel-footer announcement-bottom">
-                  <div class="row">
-                    <div class="col-xs-10">
-                      View Incidents
-                    </div>
-                    <div class="col-xs-2 text-right">
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </div>
-                  </div>
-                </div>
-              </a>
             </div>
           </div>
           <div class="col-lg-3">
@@ -151,18 +90,6 @@ $project_code = substr($project_code,0,-1);
                   <div class="col-xs-12 text-right"><p class="announcement-text">Blocked / Pending Incidents</p></div>
                 </div>
               </div>
-              <a href="javascript:viewIncident('3');">
-                <div class="panel-footer announcement-bottom">
-                  <div class="row">
-                    <div class="col-xs-10">
-                      View Incidents
-                    </div>
-                    <div class="col-xs-2 text-right">
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </div>
-                  </div>
-                </div>
-              </a>
             </div>
           </div>
           <div class="col-lg-3">
@@ -177,79 +104,64 @@ $project_code = substr($project_code,0,-1);
 
                 </div>
               </div>
-              <a href="javascript:viewIncident('4');">
-                <div class="panel-footer announcement-bottom">
-                  <div class="row">
-                    <div class="col-xs-10">
-                      View Incidents
-                    </div>
-                    <div class="col-xs-2 text-right">
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </div>
-                  </div>
-                </div>
-              </a>
             </div>
           </div>
         </div><!-- /.row -->
-      <div class="row">
-        <div class="col-lg-12">   
-        <div class="panel panel-default chat">
-						<div class="panel-heading">
-							Latest Incidents Reported
-              <hr/>
-						</div>
-        <div class="table-responsive panel-body" id="div_app_list"></div>
-        </div>
+        <div class="row">
+          <div class="col-lg-12">   
+            <div class="panel panel-default chat">
+              <div class="panel-heading">
+                Latest Incidents Reported
+                <hr/>
               </div>
-      </div><!-- /.row -->
+              <div class="table-responsive panel-body" id="div_app_list"></div>
+            </div>
+          </div>
+        </div><!-- /.row -->
 
 
-      <div class="row">
+        <div class="row">
           <div class="col-lg-7">
-          <div class="panel panel-default chat">
-						<div class="panel-heading">
-							Recent Comments
-              <hr/>
-						</div>
-            <div class="panel-body" id="Comments"></div>
-					</div>
+            <div class="panel panel-default chat">
+              <div class="panel-heading">
+                Recent Comments
+                <hr/>
+              </div>
+              <div class="panel-body" id="Comments"></div>
+            </div>
           </div>
 
           <div class="col-lg-5  ">
-<div class="panel panel-default articles">
-						<div class="panel-heading">
-							Upcoming Events
-              <hr/>
-						</div>
-<?php
-              	$username=$_SESSION['username'];
-                $sqlquery = "SELECT id,owner,title, DATE_FORMAT(BEGIN,'%d/%m/%Y') begin, DATE_FORMAT(END,'%d/%m/%Y') end FROM events where begin > now()";
-                $result = mysqli_query($con,$sqlquery) or die("sql= ". $sqlquery);          //query
-                while($row = mysqli_fetch_array($result)){?>
-<!--                  <a style="cursor:pointer"><li id="<?=$row['id']?>"><?=$row['title']?> (<?=$row['begin']?>) - <?=$row['owner']?></li></a>-->
-                  <div class="panel-body articles-container">
-                  <div class="article border-bottom">
-                  <div class="col-xs-12">
-                    <div class="row">
-                      <div class="col-xs-2 col-md-2 date">
-                        <?=$row['begin']?>
-                      </div>
-                      <div class="col-xs-10 col-md-10">
-                        <p><?=$row['title']?></p>
+            <div class="panel panel-default articles">
+              <div class="panel-heading">
+                Upcoming Events
+                <hr/>
+              </div>
+                  <?php
+                  $username=$_SESSION['username'];
+                  $sqlquery = "SELECT id,owner,title, DATE_FORMAT(BEGIN,'%d/%m/%Y') begin, DATE_FORMAT(END,'%d/%m/%Y') end FROM events where begin > now()";
+                  $result = mysqli_query($con,$sqlquery) or die("sql= ". $sqlquery);          //query
+                  while($row = mysqli_fetch_array($result)){?>
+                    <!--                  <a style="cursor:pointer"><li id="<?=$row['id']?>"><?=$row['title']?> (<?=$row['begin']?>) - <?=$row['owner']?></li></a>-->
+                    <div class="panel-body articles-container">
+                    <div class="article border-bottom">
+                    <div class="col-xs-12">
+                      <div class="row">
+                        <div class="col-xs-2 col-md-2 date">
+                          <?=$row['begin']?>
+                        </div>
+                        <div class="col-xs-10 col-md-10">
+                          <p><?=$row['title']?></p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="clear"></div>
-                </div>                                        
-<?php
-                }?>                               
-
-<!--End .article-->
-							
-						</div>
-					</div>          
-        </div>
+                    <div class="clear"></div>
+                  </div>                                        
+                  <?php
+                  }?>                               
+              </div>
+            </div>          
+          </div>
         </div><!-- /.row -->
 
       </div><!-- /#page-wrapper -->
