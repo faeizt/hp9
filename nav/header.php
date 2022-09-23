@@ -50,9 +50,8 @@ $user_access3     =   intval($row['access3']);
     <link href="<?=$nav_control?>css/bootstrap.css" rel="stylesheet">
     <link href="<?=$nav_control?>jquery-ui-1.10.3/css/flick/jquery-ui.css"rel="stylesheet" >
     <!-- Add custom CSS here -->
-    <link href="<?=$nav_control?>css/sb-admin.css" rel="stylesheet">
+    <link href="<?=$nav_control?>css/helpdesk.css" rel="stylesheet">
     <link href="<?=$nav_control?>css/dataTables.bootstrap.css" rel="stylesheet">    
-    <!-- <link href="<?=$nav_control?>font-awesome3/css/font-awesome.min.css"rel="stylesheet"> -->
     <link href="<?=$nav_control?>bootstrap3-editable-1.5.1/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
     <link href="<?=$nav_control?>font-awesome-4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
