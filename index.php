@@ -171,55 +171,13 @@ if ($access_control == "true") {?>
 <script src="js/jquery.flot.resize.js"></script>      
 <script type="text/javascript">
 
-function viewIncident(typeofincident){
-  var date_type     = typeofincident ;
-  var begin         = $("#begin_date").val()  ;
-  var end           = $("#end_date").val()  ;
-  var project       = $("#project_code_list").val()  
-
-//alert(date_type +" " + begin+" " + end+" " + project)
-
-  window.location.href="incident/?date_type="+date_type+"&begin="+begin+"&end="+end;
-}
-var str_project = $('#project_list').val();
-  var sql       = "";
-  if (str_project != "")  sql = sql +"project_code in     (" + str_project +")";
-  var date_type     = "open_date";
-  var begin         = $('#begin_date').val();
-  var end           = $('#end_date').val();
-//  alert(sql)
-
-if (str_project!="") {
-  $.ajax({
-    async: "false",
-    type: "POST",
-    url: "app_list_compact.php",
-    data: ({
-        type       : ''  ,
-        fltr       : ''  ,
-        date_type  : date_type  ,
-        begin      : begin  ,
-        end        : end  
-        }) ,
-
-    success: function(data){
-      if(data!=""){ 
-        $('#div_app_list').html(data);
-
-      }
-
-      else{//true
-            valid = false;
-            alert('fail')
-      }
-    } 
-  }); 
-}
-  $('#Comments').load('comments.php?case_id='+$('#case_id').val(),function(){  });
+$('#div_app_list').load('app_list_compact.php?projects='+$('#project_code_list').val(),function(){  });
+$('#Comments').load('comments.php?case_id='+$('#case_id').val(),function(){  });
 
 $.ajaxSetup({
   async: false
 });
+
 $(function () {
   $.getJSON("lookup/widget_json.php?project_code="+$('#project_code_list').val()+"&begin="+ $('#today').val()+"&end="+$('#today').val(), function(json) {
       $('#open').html(json[0].open);
@@ -229,31 +187,7 @@ $(function () {
       $('#resolve').html(json[4].asdf);
   })
 })
-$('#reportrange').daterangepicker({
-      ranges: {
-         'Today': [moment(), moment()],
-         'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
-         'Last 7 Days': [moment().subtract('days', 6), moment()],
-         'Last 30 Days': [moment().subtract('days', 29), moment()],
-         'This Month': [moment().startOf('month'), moment().endOf('month')],
-         'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
-      },
-      startDate: moment(),
-      endDate: moment()
-    },
-    function(start, end) {
-      $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-      var begin = start.format('YYYY-MM-D');
-      var end = end.format('YYYY-MM-D');
-      $('#begin').val(begin)
-      $('#end').val(end)
-      $.getJSON("lookup/widget_json.php?project_code="+$('#project_code_list').val()+"&begin="+ begin+"&end="+end, function(json) {
-          $('#open').html(json[0].open_date);
-          $('#onsite').html(json[1].onsite_time);
-          $('#pending').html(json[2].pending_time);
-          $('#resolve').html(json[3].resolve_time);
-        })
-    });
+
 $(function () {
   var str_project       = "";
   var str_engineer      = "";
@@ -266,15 +200,9 @@ $(function () {
   var begin             = $('#begin_date').val();
   var end               = $('#end_date').val();
 
-
   $.each(currnt_image_list.split(','), function(index, value) { 
     $.getJSON("lookup/graph_json_project.php?report_type="+type+"&project="+value+"&status="+str_status+"&engineer="+str_engineer+"&date_type=open_date"+"&sql="+sql+"&begin="+begin+"&end="+end, function(json) {
-        //alert(JSON.stringify(json.data))
-
-        var tempdata = [[0, 5],[1, 10],[2, 15],[3, 20],[4, 25],[5, 30]];
-        var dataset = [{ label: "2012 Average Temperature", data: tempdata, color: "#5482FF" }];
-        var ticks = [[0, "London"], [1, "New York"], [2, "New Delhi"], [3, "Taipei"], [4, "Beijing"], [5, "Sydney"]];
-
+      // alert(JSON.stringify(json.data))
       data.push(json);
       var plotarea = $("#statsChart");
       $.plot(plotarea , data,
