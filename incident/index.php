@@ -3,27 +3,12 @@ session_start();
 $_SESSION['nav_level'] = "1";
 $_SESSION['nav_title'] = "incident";
 include ("../nav/header.php");
-$project      ="";
-$project_code ="";
-
-foreach ($result_array as $results) {
-    $project      = $project .$results['project_code'] . ",";
-    $project_code = $project_code ."'".$results['project_code'] . "',";
-
-}
-$project = substr($project,0,-1);
-$project_code = substr($project_code,0,-1);
-
 if ($access_control == "true") {
-
-?>
-<input type="hidden" id="project_list" value="<?=$project?>">
-<input type="hidden" id="project_code_list" value="<?=$project_code?>">
-<?php
-if (isset($_GET['date_type']) && isset($_GET['begin']) && isset($_GET['end'])) {?>
-<input type="hidden" id="date_type" value="<?=$_GET['date_type']?>">
-<input type="hidden" id="begin_date" value="<?=$_GET['begin']?>">
-<input type="hidden" id="end_date" value="<?=$_GET['end']?>"><?php                }
+  if (isset($_GET['date_type']) && isset($_GET['begin']) && isset($_GET['end'])) {?>
+  <input type="hidden" id="date_type" value="<?=$_GET['date_type']?>">
+  <input type="hidden" id="begin_date" value="<?=$_GET['begin']?>">
+  <input type="hidden" id="end_date" value="<?=$_GET['end']?>"><?php                
+  }
 ?>
 <!-- Submenu Navigation -->
 <nav class="navbar navbar-default" role="navigation">
@@ -104,8 +89,7 @@ if (isset($_GET['date_type']) && isset($_GET['begin']) && isset($_GET['end'])) {
     </div><!-- /.row -->
     <blockquote id='blockquote'>  <p> </p></blockquote>
     
-    <div class="table-responsive" id="div_app_list">              
-    </div>
+    <div class="table-responsive" id="div_app_list"></div>
   </div>
 </div><!-- /#page-wrapper -->
 <script type="text/javascript">
@@ -128,12 +112,12 @@ $('select#inventory_project').load('../lookup/project_filter.php?client='+$('#in
 })    
 
 $('select#inventory_client').change(function(){
-    $('select#inventory_project').load('../lookup/project_filter.php?client='+$('#inventory_client').val()+'&selected='+$('#project').val()+'&code=256', function() { 
+  $('select#inventory_project').load('../lookup/project_filter.php?client='+$('#inventory_client').val()+'&selected='+$('#project').val()+'&code=256', function() { 
     var project_code = $('select#inventory_project').val();
     if (project_code!="") {
         $( 'select#inventory_machine').load('../lookup/machine.php?project='+project_code, function() {  })    
     };
-    })                    
+  })                    
 })
 
 $('#apply_filter').click(function(){
@@ -146,7 +130,6 @@ $('#apply_filter').click(function(){
     var fltr = fltr + "client_code = ^"+ client+"^";
     if(project !=""){
       var fltr = fltr + " and project_code = ^"+ project+"^";
-      
     }  
   }
   if ((fltr !='') && (status != ''))  {
@@ -160,57 +143,19 @@ $('#apply_filter').click(function(){
     type: "POST",
     url: "list.php",
     data: ({
-        fltr          : fltr
+        fltr : fltr
         }) ,
-
     success: function(data){
       if(data!=""){ 
         $('#div_app_list').html(data)
       }
-
       else{//true
-            
             alert('Oppss!! Unable to load list.')
       }
     } 
   }); 
 })    
-// $('#div_app_list').load('app_list.php',function(responseTxt,statusTxt,xhr){
-//      // if(statusTxt=="success")             alert("External content loaded successfully!");
-//      if(statusTxt=="error")               alert("Error: "+xhr.status+": "+xhr.statusText);
-//  });
-$(document).ready(function(){
-  // $('#datatables').dataTable();
-  var dTable=$("#datatables").dataTable({
-    "bProcessing":false,
-    "bPaginate":true,
-    "bRetrieve":false,
-    "bFilter":true,
-    "bJQueryUI":true,
-    "bAutoWidth":false,
-    "bInfo":true,
-    "fnPreDrawCallback":function(){
-        $("#datatables").hide();
-        // $("#loading").show();
-        // alert("Pre Draw");
-    },
-    "fnDrawCallback":function(){
-        $("#datatables").show();
-        
-        // $("#loading").hide();
-        // alert("Draw");
-    },
-    "fnInitComplete":function(){
-        // alert("Complete");
-        $("#datatables").show();
-    }
-  })        
-})
-$(document).on('click', '#datatables tbody tr', function(){
-      window.location.replace("view.php?app_no="+$(this).attr('data'));
-});
 </script>
-
 <?php
 }else{
 include ("../nav/access_denied.php");
