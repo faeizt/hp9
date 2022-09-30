@@ -3,9 +3,16 @@ session_start();
 $_SESSION['nav_level'] = "1";
 $_SESSION['nav_title'] = "incident";     
 include '../DB.php';
+
+if(isset($_POST['fltr']) && ($_POST['fltr']!='')){
+  $fltr = $_POST['fltr'];
+  $fltr = str_replace("^", "'", $fltr);
+  $sqlquery = "SELECT * FROM v_incident where ".$fltr." order by open_date desc";                
+}     
 if (isset($_GET['projects']) ) {
   $project_code=$_GET['projects'];
-  $sqlquery = "SELECT * FROM v_incident where project_code in ($project_code) order by open_date desc";               
+  $sqlquery = "SELECT * FROM v_incident where project_code in ($project_code) order by open_date desc";   
+}            
 // echo $sqlquery;
 $result = mysqli_query($con,$sqlquery) or die("sql= ". $sqlquery);    
 $num  = mysqli_num_rows($result);
@@ -82,7 +89,6 @@ $(document).on('click', '#datatables tbody tr', function(){
   window.location.href = "view.php?app_no="+$(this).attr('data');
 });
 </script>
-<?php
-}   
+<?php 
 include ("../nav/footer.php");
 ?>
