@@ -9,10 +9,10 @@ include '../DB.php';
   $user_id =   $_SESSION['user_id'] ;
   $sql = 'ayam goeren';
   if($client=="" || $client=="null") {
-    $sql = "SELECT * FROM sys_user_ac a, project p WHERE a.user_id='$user_id' AND a.project_code = p.project_code AND a.access & $code = $code";          //query
+    $sql = "SELECT * FROM sys_user_ac a, project p WHERE  a.project_code = p.project_code AND a.access & $code = $code";          //query
   }
   else {
-   $sql   = "SELECT * FROM sys_user_ac a, project p WHERE a.user_id='$user_id' AND a.project_code = p.project_code AND a.access & $code = $code and a.client_code = '$client'"; 
+   $sql   = "SELECT * FROM sys_user_ac a, project p WHERE  a.project_code = p.project_code AND a.access & $code = $code and a.client_code = '$client'"; 
   }
   // echo $sql;
   $result =   mysqli_query($con,$sql);
