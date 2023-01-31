@@ -109,7 +109,7 @@ else if ($days > 64 && $days< 366) { //weekly report
 		(SELECT count(*) R,month(open_date) mm,
 		project_code
 		FROM  v_incident 
-		where  open_date BETWEEN (STR_TO_DATE('2022-01-01', '%Y-%m-%d')) AND (STR_TO_DATE('2022-12-31', '%Y-%m-%d')) 
+		where  open_date BETWEEN (STR_TO_DATE('2023-01-01', '%Y-%m-%d')) AND (STR_TO_DATE('2023-12-31', '%Y-%m-%d')) 
 		and project_code='$project'
 		group by mm
 		) as tmp
